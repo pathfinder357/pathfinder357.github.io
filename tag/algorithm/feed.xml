@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
+  <link href="https://yujunchoi.github.io/tag/algorithm/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://yujunchoi.github.io/" rel="alternate" type="text/html" />
+  <updated>2021-07-27T11:44:56+09:00</updated>
+  <id>https://yujunchoi.github.io/tag/algorithm/feed.xml</id>
+
+  
+  
+  
+
+  
+    <title type="html">CYJ practice blog | </title>
+  
+
+  
+    <subtitle>공부내용 정리 블로그</subtitle>
+  
+
+  
+
+  
+    
+      
+    
+  
+
+  
+  
+
+  
+    <entry>
+      <title type="html">first</title>
+      <link href="https://yujunchoi.github.io/algo-basic" rel="alternate" type="text/html" title="first" />
+      <published>2021-07-27T01:40:00+09:00</published>
+      <updated>2021-07-27T01:40:00+09:00</updated>
+      <id>https://yujunchoi.github.io/algo-basic</id>
+      <content type="html" xml:base="https://yujunchoi.github.io/algo-basic">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;목차. &lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./algo-basic&quot;&gt;first&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algo-control&quot;&gt;second&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;초기&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>yujunchoi</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="algorithm" />
+      
+
+      
+        <summary type="html">목차. first second</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">second</title>
+      <link href="https://yujunchoi.github.io/algo-control" rel="alternate" type="text/html" title="second" />
+      <published>2021-07-27T01:40:00+09:00</published>
+      <updated>2021-07-27T01:40:00+09:00</updated>
+      <id>https://yujunchoi.github.io/algo-control</id>
+      <content type="html" xml:base="https://yujunchoi.github.io/algo-control">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;목차. &lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./algo-basic&quot;&gt;first&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algo-control&quot;&gt;second&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;컨트롤&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>yujunchoi</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="algorithm" />
+      
+
+      
+        <summary type="html">목차. first second</summary>
+      
+
+      
+      
+    </entry>
+  
+</feed>
