@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://pathfinder357.github.io/author/pathfinder357/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://pathfinder357.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-07-28T10:29:21+09:00</updated>
+  <updated>2021-07-28T10:45:34+09:00</updated>
   <id>https://pathfinder357.github.io/author/pathfinder357/feed.xml</id>
 
   
@@ -12,7 +12,7 @@
   
 
   
-    <title type="html">CYJ practice blog | </title>
+    <title type="html">Pathfinder practice blog | </title>
   
 
   
@@ -227,8 +227,8 @@ exclude:
     </entry>
   
     <entry>
-      <title type="html">first</title>
-      <link href="https://pathfinder357.github.io/data-basic" rel="alternate" type="text/html" title="first" />
+      <title type="html">Data Basic</title>
+      <link href="https://pathfinder357.github.io/data-basic" rel="alternate" type="text/html" title="Data Basic" />
       <published>2021-07-27T01:40:00+09:00</published>
       <updated>2021-07-27T01:40:00+09:00</updated>
       <id>https://pathfinder357.github.io/data-basic</id>
