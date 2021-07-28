@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://pathfinder357.github.io/author/pathfinder357/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://pathfinder357.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-07-28T10:24:11+09:00</updated>
+  <updated>2021-07-28T10:29:21+09:00</updated>
   <id>https://pathfinder357.github.io/author/pathfinder357/feed.xml</id>
 
   
@@ -232,8 +232,7 @@ exclude:
       <published>2021-07-27T01:40:00+09:00</published>
       <updated>2021-07-27T01:40:00+09:00</updated>
       <id>https://pathfinder357.github.io/data-basic</id>
-      <content type="html" xml:base="https://pathfinder357.github.io/data-basic">&lt;p&gt;초기
-자료구조란?&lt;/p&gt;</content>
+      <content type="html" xml:base="https://pathfinder357.github.io/data-basic">&lt;p&gt;노드 -&amp;gt; 트리 -&amp;gt; 정렬 -&amp;gt; 탐색 -&amp;gt; 큐 -&amp;gt; 해쉬 -&amp;gt; 그래프 -&amp;gt;문자열 검색-&amp;gt;알고리즘 성능분석 -&amp;gt; 분할정복 -&amp;gt;동적 계획법 -&amp;gt;탐욕알고리즘 -&amp;gt; 백트래킹&lt;/p&gt;</content>
 
       
       
@@ -254,7 +253,7 @@ exclude:
       
 
       
-        <summary type="html">초기 자료구조란?</summary>
+        <summary type="html">노드 -&amp;gt; 트리 -&amp;gt; 정렬 -&amp;gt; 탐색 -&amp;gt; 큐 -&amp;gt; 해쉬 -&amp;gt; 그래프 -&amp;gt;문자열 검색-&amp;gt;알고리즘 성능분석 -&amp;gt; 분할정복 -&amp;gt;동적 계획법 -&amp;gt;탐욕알고리즘 -&amp;gt; 백트래킹</summary>
       
 
       
