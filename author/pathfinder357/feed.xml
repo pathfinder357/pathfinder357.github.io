@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://pathfinder357.github.io/author/pathfinder357/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://pathfinder357.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-07-27T15:39:32+09:00</updated>
+  <updated>2021-07-28T10:16:03+09:00</updated>
   <id>https://pathfinder357.github.io/author/pathfinder357/feed.xml</id>
 
   
@@ -232,7 +232,8 @@ exclude:
       <published>2021-07-27T01:40:00+09:00</published>
       <updated>2021-07-27T01:40:00+09:00</updated>
       <id>https://pathfinder357.github.io/data-basic</id>
-      <content type="html" xml:base="https://pathfinder357.github.io/data-basic">&lt;p&gt;초기&lt;/p&gt;</content>
+      <content type="html" xml:base="https://pathfinder357.github.io/data-basic">&lt;p&gt;초기
+자료구조란?&lt;/p&gt;</content>
 
       
       
@@ -253,7 +254,7 @@ exclude:
       
 
       
-        <summary type="html">초기</summary>
+        <summary type="html">초기 자료구조란?</summary>
       
 
       
