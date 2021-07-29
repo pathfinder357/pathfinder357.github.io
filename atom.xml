@@ -8,9 +8,40 @@
     
       
       <item>
-        <title>Data Basic</title>
+        <title>자료구조 (3) 트리</title>
         
-          <description>&lt;p&gt;노드 -&amp;gt; 트리 -&amp;gt; 정렬 -&amp;gt; 탐색 -&amp;gt; 큐 -&amp;gt; 해쉬 -&amp;gt; 그래프 -&amp;gt;문자열 검색-&amp;gt;알고리즘 성능분석 -&amp;gt; 분할정복 -&amp;gt;동적 계획법 -&amp;gt;탐욕알고리즘 -&amp;gt; 백트래킹&lt;/p&gt;
+          <description>&lt;p&gt;&lt;strong&gt;프로그래밍 자료구조 마지막장 트리.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;lcrs-트리&quot;&gt;LCRS 트리&lt;/h3&gt;
+
+</description>
+        
+        <pubDate>Tue, 27 Jul 2021 01:40:00 +0900</pubDate>
+        <link>
+        https://pathfinder357.github.io/data-Tree</link>
+        <guid isPermaLink="true">https://pathfinder357.github.io/data-Tree</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>자료구조 (1) 리스트</title>
+        
+          <description>&lt;p&gt;&lt;strong&gt;목록형 자료구조인 리스트를 통해 자료구조의 기초를 다질것입니다.&lt;/strong&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 27 Jul 2021 01:40:00 +0900</pubDate>
+        <link>
+        https://pathfinder357.github.io/data-list</link>
+        <guid isPermaLink="true">https://pathfinder357.github.io/data-list</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>자료구조 시작</title>
+        
+          <description>&lt;p&gt;자료구조는 알고리즘을 익히는데 필요한 기초지식이면서 그자체로도 매우 중요한 내용이다.&lt;/p&gt;
 
 </description>
         
