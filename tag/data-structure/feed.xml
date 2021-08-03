@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://pathfinder357.github.io/tag/data-structure/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://pathfinder357.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-07-29T15:57:57+09:00</updated>
+  <updated>2021-08-03T15:01:26+09:00</updated>
   <id>https://pathfinder357.github.io/tag/data-structure/feed.xml</id>
 
   
@@ -32,6 +32,69 @@
 
   
     <entry>
+      <title type="html">자료구조 stack(2)</title>
+      <link href="https://pathfinder357.github.io/data-stack" rel="alternate" type="text/html" title="자료구조 stack(2)" />
+      <published>2021-07-30T01:40:00+09:00</published>
+      <updated>2021-07-30T01:40:00+09:00</updated>
+      <id>https://pathfinder357.github.io/data-stack</id>
+      <content type="html" xml:base="https://pathfinder357.github.io/data-stack">&lt;h3 id=&quot;stack&quot;&gt;stack&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__len__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__str__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[::&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;is_empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;pop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stack underflow&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;clear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>yujunchoi</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="data-structure" />
+      
+
+      
+        <summary type="html">stack</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">자료구조 (1) 리스트</title>
       <link href="https://pathfinder357.github.io/data-list" rel="alternate" type="text/html" title="자료구조 (1) 리스트" />
       <published>2021-07-27T01:40:00+09:00</published>
@@ -41,22 +104,34 @@
 
 &lt;h3 id=&quot;링크드-리스트&quot;&gt;링크드 리스트&lt;/h3&gt;
 &lt;hr /&gt;
-&lt;p&gt;리스트 내의 각요소는 노드라고 부릅니다. &lt;br /&gt;
-링크드 리스트는 ‘노드를 연결해서 만드는 리스트’ 라고 해서 붙여진 이름입니다. &lt;br /&gt;
-노드는 데이터와 포인터로 이루어져있는데 이를 주렁주렁 엮으면 링크드 리스트가 되는 것입니다. &lt;br /&gt;
-노드를 파이썬으로 구성하면 밑의 방식으로 구현됩니다.&lt;/p&gt;
+&lt;p&gt;링크를 이용해서 리스트를 만든다는 뜻
+리스트 내의 각요소는 노드라고 부릅니다.&lt;/p&gt;
+
+&lt;p&gt;링크드 리스트는 ‘노드를 연결해서 만드는 리스트’ 라고 해서 붙여진 이름입니다.&lt;/p&gt;
+
+&lt;p&gt;노드안에는 주소를 저장하는 레퍼런스와 , 벨류가 들어갑니다.&lt;/p&gt;
+
+&lt;p&gt;이를 주렁주렁 엮으면 링크드 리스트가 되는 것입니다.&lt;/p&gt;
+
+&lt;p&gt;링크드 리스트가 중요한 이유는 후에 트리와 그래프의 기본적인 구조를 뒷받침하기
+때문입니다.&lt;/p&gt;
+
+&lt;p&gt;노드를 파이썬으로 구성하면 밑의 방식으로 구현됩니다.&lt;/p&gt;
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;
-        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nextnode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; 
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nextnode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;#addr
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;find를 하게되면  timecomplexd O(n)
+insert와 delete의 timecomplexed O(1)&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;노드는 자료와 다음 노드를 가르키는 참조값으로 구성 됩니다.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;구현하고자 하는 방식
-노드 생성-&amp;gt; 노드 추가-&amp;gt; 노드 탐색-&amp;gt; 노드 삭제-&amp;gt; 노드 삽입-&amp;gt;노드수 세기&lt;/p&gt;
+노드 생성(structure) -&amp;gt; 노드 추가-&amp;gt; 노드 탐색-&amp;gt; 노드 삭제-&amp;gt; 노드 삽입-&amp;gt;노드수 세기&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
@@ -164,8 +239,9 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;이부분은 노드추가 함수 부분중 일부분인데 노드 추가하기 위해서 
 꼬리 노드에 도달하면 마지막 노드의 .next에 새로운노드의 주소를 저장하고 size를 추가시키는 부분인데
-while 반복문중에서 tail = tail.next 이부분이 이해가 잘 가지가 않는다. tail은 class node의 성질을 가진
-헤더 노드이고&lt;/p&gt;
+while 반복문중에서 tail = tail.next 이부분이 이해가 잘 가지가 않았다. 
+하지만 공부했던 것을 다시 생각해보니 좌변에 있는 변수는 우변에 있는 어떤것에 대한 주소의 별칭일 뿐이다.
+즉 tail =tail.next는 tail이 가르키는 곳이 tail.next가 가르키는 곳으로 바뀌었다는 뜻인것이다.&lt;/p&gt;
 
 &lt;h3 id=&quot;더블-링크드-리스트&quot;&gt;더블 링크드 리스트&lt;/h3&gt;</content>
 
@@ -201,9 +277,60 @@ while 반복문중에서 tail = tail.next 이부분이 이해가 잘 가지가 �
       <published>2021-07-27T01:40:00+09:00</published>
       <updated>2021-07-27T01:40:00+09:00</updated>
       <id>https://pathfinder357.github.io/data-basic</id>
-      <content type="html" xml:base="https://pathfinder357.github.io/data-basic">&lt;p&gt;자료구조는 알고리즘을 익히는데 필요한 기초지식이면서 그자체로도 매우 중요한 내용이다.&lt;/p&gt;
+      <content type="html" xml:base="https://pathfinder357.github.io/data-basic">&lt;p&gt;순차적 자료구조&lt;/p&gt;
 
-&lt;p&gt;자료구조에서 4가지 자료구조(리스트, 스택, 큐 ,트리)를 차례대로 살펴보면서 데이터를 효율적으로 관리하는 기법을 익힐 예정입니다.&lt;/p&gt;</content>
+&lt;p&gt;(1) 배열, 리스트&lt;/p&gt;
+
+&lt;p&gt;인덱스로 임의 원소를 접근&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;연산자 []&lt;/li&gt;
+  &lt;li&gt;삽입(append, insert)&lt;/li&gt;
+  &lt;li&gt;삭제(pop, remove)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;(2) stack, queue, dequeue&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;제한된 접근(삽입, 삭제)  접근만 허용&lt;/li&gt;
+  &lt;li&gt;배열과 리스트는 인덱스만 알면 삭제 삽입이 가능하지만 스택, 큐는 제한된 것만 활용가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;＊ 스택 접근 방식&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;LIFO(last in first out)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;밑에서부터 차곡차곡&lt;/p&gt;
+
+&lt;p&gt;제한된 연산만 사용하는 자료구조는 굉장히 많다 (ex: )&lt;/p&gt;
+
+&lt;p&gt;＊ 큐 접근방식&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;FIFO(first in fist out, 선착순)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;밑에서부터 차곡차곡&lt;/p&gt;
+
+&lt;p&gt;＊ dequeue 접근방식&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;stack + queue&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;(3) Linked List&lt;/p&gt;
+
+&lt;p&gt;독립적으로 저장되어 있는 노드에 다음값에 대해서 알고있는 링크를연결 하는 것&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;각각의 노드에 자기 자신의 val + self.next를 가진다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;각자의 값들이 연속되어 있지 않은 곳에 저장되어 있고 다음 노드의 링크를 가지고있는것(idx로 접근 할수가없지만 함수로 가능케 할순있음)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content>
 
       
       
@@ -224,7 +351,7 @@ while 반복문중에서 tail = tail.next 이부분이 이해가 잘 가지가 �
       
 
       
-        <summary type="html">자료구조는 알고리즘을 익히는데 필요한 기초지식이면서 그자체로도 매우 중요한 내용이다.</summary>
+        <summary type="html">순차적 자료구조</summary>
       
 
       
@@ -451,7 +578,7 @@ while 반복문중에서 tail = tail.next 이부분이 이해가 잘 가지가 �
 
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;disjoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;disjoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
+ 
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
 

@@ -58,11 +58,7 @@
     <meta property="og:site_name" content="Pathfinder practice blog" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="자료구조 시작" />
-    <meta property="og:description" content="자료구조는 알고리즘을 익히는데 필요한 기초지식이면서 그자체로도 매우 중요한 내용이다.
-
-자료구조에서 4가지 자료구조(리스트, 스택, 큐 ,트리)를 차례대로 살펴보면서 데이터를 효율적으로 관리하는 기법을 익힐 예정입니다.
-
-" />
+    <meta property="og:description" content="순차적 자료구조 (1) 배열, 리스트 인덱스로 임의 원소를 접근 연산자 [] 삽입(append, insert) 삭제(pop, remove) (2) stack, queue, dequeue 제한된 접근(삽입, 삭제) 접근만 허용 배열과 리스트는 인덱스만 알면 삭제 삽입이 가능하지만 스택, 큐는 제한된 것만 활용가능 ＊ 스택 접근 방식 LIFO(last in first out) 밑에서부터 차곡차곡 제한된 연산만 사용하는 자료구조는" />
     <meta property="og:url" content="https://pathfinder357.github.io/data-basic" />
     <meta property="og:image" content="https://pathfinder357.github.io/assets/built/images/default.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -72,11 +68,7 @@
     <meta property="article:tag" content="Data-structure" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="자료구조 시작" />
-    <meta name="twitter:description" content="자료구조는 알고리즘을 익히는데 필요한 기초지식이면서 그자체로도 매우 중요한 내용이다.
-
-자료구조에서 4가지 자료구조(리스트, 스택, 큐 ,트리)를 차례대로 살펴보면서 데이터를 효율적으로 관리하는 기법을 익힐 예정입니다.
-
-" />
+    <meta name="twitter:description" content="순차적 자료구조 (1) 배열, 리스트 인덱스로 임의 원소를 접근 연산자 [] 삽입(append, insert) 삭제(pop, remove) (2) stack, queue, dequeue 제한된 접근(삽입, 삭제) 접근만 허용 배열과 리스트는 인덱스만 알면 삭제 삽입이 가능하지만 스택, 큐는 제한된 것만 활용가능 ＊ 스택 접근 방식 LIFO(last in first out) 밑에서부터 차곡차곡 제한된 연산만 사용하는 자료구조는" />
     <meta name="twitter:url" content="https://pathfinder357.github.io/" />
     <meta name="twitter:image" content="https://pathfinder357.github.io/assets/built/images/default.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -108,11 +100,7 @@
         "@type": "WebPage",
         "@id": "https://pathfinder357.github.io/data-basic"
     },
-    "description": "자료구조는 알고리즘을 익히는데 필요한 기초지식이면서 그자체로도 매우 중요한 내용이다.
-
-자료구조에서 4가지 자료구조(리스트, 스택, 큐 ,트리)를 차례대로 살펴보면서 데이터를 효율적으로 관리하는 기법을 익힐 예정입니다.
-
-"
+    "description": "순차적 자료구조 (1) 배열, 리스트 인덱스로 임의 원소를 접근 연산자 [] 삽입(append, insert) 삭제(pop, remove) (2) stack, queue, dequeue 제한된 접근(삽입, 삭제) 접근만 허용 배열과 리스트는 인덱스만 알면 삭제 삽입이 가능하지만 스택, 큐는 제한된 것만 활용가능 ＊ 스택 접근 방식 LIFO(last in first out) 밑에서부터 차곡차곡 제한된 연산만 사용하는 자료구조는"
 }
     </script>
 
@@ -208,9 +196,60 @@ into the {body} of the default.hbs template -->
             -->
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <p>자료구조는 알고리즘을 익히는데 필요한 기초지식이면서 그자체로도 매우 중요한 내용이다.</p>
+                    <p>순차적 자료구조</p>
 
-<p>자료구조에서 4가지 자료구조(리스트, 스택, 큐 ,트리)를 차례대로 살펴보면서 데이터를 효율적으로 관리하는 기법을 익힐 예정입니다.</p>
+<p>(1) 배열, 리스트</p>
+
+<p>인덱스로 임의 원소를 접근</p>
+
+<ul>
+  <li>연산자 []</li>
+  <li>삽입(append, insert)</li>
+  <li>삭제(pop, remove)</li>
+</ul>
+
+<p>(2) stack, queue, dequeue</p>
+
+<ul>
+  <li>제한된 접근(삽입, 삭제)  접근만 허용</li>
+  <li>배열과 리스트는 인덱스만 알면 삭제 삽입이 가능하지만 스택, 큐는 제한된 것만 활용가능</li>
+</ul>
+
+<p>＊ 스택 접근 방식</p>
+<ul>
+  <li>LIFO(last in first out)</li>
+</ul>
+
+<p>밑에서부터 차곡차곡</p>
+
+<p>제한된 연산만 사용하는 자료구조는 굉장히 많다 (ex: )</p>
+
+<p>＊ 큐 접근방식</p>
+
+<ul>
+  <li>FIFO(first in fist out, 선착순)</li>
+</ul>
+
+<p>밑에서부터 차곡차곡</p>
+
+<p>＊ dequeue 접근방식</p>
+
+<ul>
+  <li>stack + queue</li>
+</ul>
+
+<p>(3) Linked List</p>
+
+<p>독립적으로 저장되어 있는 노드에 다음값에 대해서 알고있는 링크를연결 하는 것</p>
+
+<ul>
+  <li>
+    <p>각각의 노드에 자기 자신의 val + self.next를 가진다.</p>
+  </li>
+  <li>
+    <p>각자의 값들이 연속되어 있지 않은 곳에 저장되어 있고 다음 노드의 링크를 가지고있는것(idx로 접근 할수가없지만 함수로 가능케 할순있음)</p>
+  </li>
+</ul>
 
 
                 </div>
@@ -310,6 +349,15 @@ into the {body} of the default.hbs template -->
                                     
                                         
                                         
+                                            <li><a href="/data-stack">자료구조 stack(2)</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
                                             <li><a href="/data-Tree">자료구조 (3) 트리</a></li>
                                         
                                     
@@ -339,7 +387,7 @@ into the {body} of the default.hbs template -->
                         <footer class="read-next-card-footer">
                             <a href="/tag/data-structure/">
                                 
-                                    See all 2 posts  →
+                                    See all 3 posts  →
                                 
                             </a>
                         </footer>
@@ -385,7 +433,7 @@ into the {body} of the default.hbs template -->
                 <span class="reading-time">
                     
                     
-                      1 min read
+                      2 min read
                     
                 </span>
             </footer>
