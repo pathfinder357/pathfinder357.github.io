@@ -8,9 +8,13 @@
     
       
       <item>
-        <title>자료구조 stack(2)</title>
+        <title>자료구조 (2) stack</title>
         
           <description>&lt;h3 id=&quot;stack&quot;&gt;stack&lt;/h3&gt;
+&lt;p&gt;__init(self) : 생성함수&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;items&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 </description>
         
@@ -23,7 +27,7 @@
     
       
       <item>
-        <title>자료구조 (3) 트리</title>
+        <title>자료구조 (4) 트리</title>
         
           <description>&lt;p&gt;&lt;strong&gt;프로그래밍 자료구조 마지막장 트리.&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&quot;lcrs-트리&quot;&gt;LCRS 트리&lt;/h3&gt;
@@ -39,7 +43,7 @@
     
       
       <item>
-        <title>자료구조 (1) 리스트</title>
+        <title>자료구조 (3) 리스트</title>
         
           <description>&lt;p&gt;&lt;strong&gt;목록형 자료구조인 리스트를 통해 자료구조의 기초를 다질것입니다.&lt;/strong&gt;&lt;/p&gt;
 
@@ -54,7 +58,7 @@
     
       
       <item>
-        <title>자료구조 시작</title>
+        <title>자료구조 (1) 시작</title>
         
           <description>&lt;p&gt;순차적 자료구조&lt;/p&gt;
 
