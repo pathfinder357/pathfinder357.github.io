@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://pathfinder357.github.io/tag/data-structure/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://pathfinder357.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-08-03T17:46:01+09:00</updated>
+  <updated>2021-08-04T15:41:07+09:00</updated>
   <id>https://pathfinder357.github.io/tag/data-structure/feed.xml</id>
 
   
@@ -32,8 +32,76 @@
 
   
     <entry>
-      <title type="html">자료구조 (2) stack</title>
-      <link href="https://pathfinder357.github.io/data-stack" rel="alternate" type="text/html" title="자료구조 (2) stack" />
+      <title type="html">자료구조 (1) 어레이와 리스트 차이</title>
+      <link href="https://pathfinder357.github.io/data-array-list" rel="alternate" type="text/html" title="자료구조 (1) 어레이와 리스트 차이" />
+      <published>2021-08-03T21:40:00+09:00</published>
+      <updated>2021-08-03T21:40:00+09:00</updated>
+      <id>https://pathfinder357.github.io/data-array-list</id>
+      <content type="html" xml:base="https://pathfinder357.github.io/data-array-list">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;목차. &lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./data-array-list&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./data-basic&quot;&gt;2&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./data-stack&quot;&gt;3&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./data-list&quot;&gt;4&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./data-Tree&quot;&gt;5&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;배열과-리스트&quot;&gt;배열과 리스트&lt;/h3&gt;
+&lt;p&gt;파이썬은 씨언어의 배열의 셀과 다르게 데이터의가 저장된곳의 주소가 저장된다.&lt;/p&gt;
+
+&lt;p&gt;즉 항상 객체의 주소만 저장하기때문에, 리스트의 셀의 크기를 메모리의 주소를 표현 할수있는 8바이트로 고정하면 된다.&lt;/p&gt;
+
+&lt;p&gt;모든셀의 크기가 같기 때문에 index에 의해 O(1)시간 접근이 가능하다.&lt;/p&gt;
+
+&lt;p&gt;C는 배열에 읽기와 쓰기만 적용되지만 파이썬의 리스트는 pop, insert, append등 여러가지 연산이 추가되는 굉장히 편리&lt;/p&gt;
+
+&lt;p&gt;리스트는 용량을 자동조절(동적배열)&lt;/p&gt;
+
+&lt;p&gt;ex) how to append operation&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+if A.n &amp;lt; A.capacity:
+A[n] = x
+A.n = n +1
+else: (A.n == A.capacity)
+B = A.capacity *2 (새로 할당)
+for i in range(n):
+B[i] = A[i]
+del A
+A = B
+A[n] = x
+A.n = n+1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>yujunchoi</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="data-structure" />
+      
+
+      
+        <summary type="html">목차. 1 2 3 4 5</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">자료구조 (3) stack</title>
+      <link href="https://pathfinder357.github.io/data-stack" rel="alternate" type="text/html" title="자료구조 (3) stack" />
       <published>2021-07-30T01:40:00+09:00</published>
       <updated>2021-07-30T01:40:00+09:00</updated>
       <id>https://pathfinder357.github.io/data-stack</id>
@@ -190,8 +258,8 @@
     </entry>
   
     <entry>
-      <title type="html">자료구조 (3) 리스트</title>
-      <link href="https://pathfinder357.github.io/data-list" rel="alternate" type="text/html" title="자료구조 (3) 리스트" />
+      <title type="html">자료구조 (4) 리스트</title>
+      <link href="https://pathfinder357.github.io/data-list" rel="alternate" type="text/html" title="자료구조 (4) 리스트" />
       <published>2021-07-27T01:40:00+09:00</published>
       <updated>2021-07-27T01:40:00+09:00</updated>
       <id>https://pathfinder357.github.io/data-list</id>
@@ -367,12 +435,12 @@ while 반복문중에서 tail = tail.next 이부분이 이해가 잘 가지가 �
     </entry>
   
     <entry>
-      <title type="html">자료구조 (1) 시작</title>
-      <link href="https://pathfinder357.github.io/data-basic" rel="alternate" type="text/html" title="자료구조 (1) 시작" />
+      <title type="html">자료구조 (2) 순차적자료구조</title>
+      <link href="https://pathfinder357.github.io/data-basic" rel="alternate" type="text/html" title="자료구조 (2) 순차적자료구조" />
       <published>2021-07-27T01:40:00+09:00</published>
       <updated>2021-07-27T01:40:00+09:00</updated>
       <id>https://pathfinder357.github.io/data-basic</id>
-      <content type="html" xml:base="https://pathfinder357.github.io/data-basic">&lt;p&gt;순차적 자료구조&lt;/p&gt;
+      <content type="html" xml:base="https://pathfinder357.github.io/data-basic">&lt;h3 id=&quot;순차적-자료구조&quot;&gt;순차적 자료구조&lt;/h3&gt;
 
 &lt;p&gt;(1) 배열, 리스트&lt;/p&gt;
 
@@ -454,8 +522,8 @@ while 반복문중에서 tail = tail.next 이부분이 이해가 잘 가지가 �
     </entry>
   
     <entry>
-      <title type="html">자료구조 (4) 트리</title>
-      <link href="https://pathfinder357.github.io/data-Tree" rel="alternate" type="text/html" title="자료구조 (4) 트리" />
+      <title type="html">자료구조 (5) 트리</title>
+      <link href="https://pathfinder357.github.io/data-Tree" rel="alternate" type="text/html" title="자료구조 (5) 트리" />
       <published>2021-07-27T01:40:00+09:00</published>
       <updated>2021-07-27T01:40:00+09:00</updated>
       <id>https://pathfinder357.github.io/data-Tree</id>

@@ -8,7 +8,29 @@
     
       
       <item>
-        <title>자료구조 (2) stack</title>
+        <title>자료구조 (1) 어레이와 리스트 차이</title>
+        
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;목차. &lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./data-array-list&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./data-basic&quot;&gt;2&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./data-stack&quot;&gt;3&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./data-list&quot;&gt;4&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./data-Tree&quot;&gt;5&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Tue, 03 Aug 2021 21:40:00 +0900</pubDate>
+        <link>
+        https://pathfinder357.github.io/data-array-list</link>
+        <guid isPermaLink="true">https://pathfinder357.github.io/data-array-list</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>자료구조 (3) stack</title>
         
           <description>&lt;h3 id=&quot;stack&quot;&gt;stack&lt;/h3&gt;
 &lt;p&gt;__init(self) : 생성함수&lt;/p&gt;
@@ -27,7 +49,7 @@
     
       
       <item>
-        <title>자료구조 (4) 트리</title>
+        <title>자료구조 (5) 트리</title>
         
           <description>&lt;p&gt;&lt;strong&gt;프로그래밍 자료구조 마지막장 트리.&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&quot;lcrs-트리&quot;&gt;LCRS 트리&lt;/h3&gt;
@@ -43,7 +65,7 @@
     
       
       <item>
-        <title>자료구조 (3) 리스트</title>
+        <title>자료구조 (4) 리스트</title>
         
           <description>&lt;p&gt;&lt;strong&gt;목록형 자료구조인 리스트를 통해 자료구조의 기초를 다질것입니다.&lt;/strong&gt;&lt;/p&gt;
 
@@ -58,9 +80,9 @@
     
       
       <item>
-        <title>자료구조 (1) 시작</title>
+        <title>자료구조 (2) 순차적자료구조</title>
         
-          <description>&lt;p&gt;순차적 자료구조&lt;/p&gt;
+          <description>&lt;h3 id=&quot;순차적-자료구조&quot;&gt;순차적 자료구조&lt;/h3&gt;
 
 </description>
         
