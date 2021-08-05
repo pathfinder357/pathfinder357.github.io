@@ -58,7 +58,7 @@
     <meta property="og:site_name" content="Pathfinder practice blog" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="자료구조 (1) 어레이와 리스트 차이" />
-    <meta property="og:description" content="목차. 1 2 3 4 5 배열과 리스트 파이썬은 씨언어의 배열의 셀과 다르게 데이터의가 저장된곳의 주소가 저장된다. 즉 항상 객체의 주소만 저장하기때문에, 리스트의 셀의 크기를 메모리의 주소를 표현 할수있는 8바이트로 고정하면 된다. 모든셀의 크기가 같기 때문에 index에 의해 O(1)시간 접근이 가능하다. C는 배열에 읽기와 쓰기만 적용되지만 파이썬의 리스트는 pop, insert," />
+    <meta property="og:description" content="목차. 1 2 3 4 5 배열과 리스트 일반적인 프로그램 동작 방식 A[2] = A[2] + 1 (쓰기) (대입) (읽기) (산술) 파이썬은 씨언어의 배열의 셀과 다르게 데이터의가 저장된곳의 주소가 저장된다. 즉 항상 객체의 주소만 저장하기때문에, 리스트의 셀의 크기를 메모리의 주소를 표현 할수있는 8바이트로 고정하면 된다. 모든셀의 크기가 같기 때문에 index에" />
     <meta property="og:url" content="https://pathfinder357.github.io/data-array-list" />
     <meta property="og:image" content="https://pathfinder357.github.io/assets/built/images/author-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -68,7 +68,7 @@
     <meta property="article:tag" content="Data-structure" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="자료구조 (1) 어레이와 리스트 차이" />
-    <meta name="twitter:description" content="목차. 1 2 3 4 5 배열과 리스트 파이썬은 씨언어의 배열의 셀과 다르게 데이터의가 저장된곳의 주소가 저장된다. 즉 항상 객체의 주소만 저장하기때문에, 리스트의 셀의 크기를 메모리의 주소를 표현 할수있는 8바이트로 고정하면 된다. 모든셀의 크기가 같기 때문에 index에 의해 O(1)시간 접근이 가능하다. C는 배열에 읽기와 쓰기만 적용되지만 파이썬의 리스트는 pop, insert," />
+    <meta name="twitter:description" content="목차. 1 2 3 4 5 배열과 리스트 일반적인 프로그램 동작 방식 A[2] = A[2] + 1 (쓰기) (대입) (읽기) (산술) 파이썬은 씨언어의 배열의 셀과 다르게 데이터의가 저장된곳의 주소가 저장된다. 즉 항상 객체의 주소만 저장하기때문에, 리스트의 셀의 크기를 메모리의 주소를 표현 할수있는 8바이트로 고정하면 된다. 모든셀의 크기가 같기 때문에 index에" />
     <meta name="twitter:url" content="https://pathfinder357.github.io/" />
     <meta name="twitter:image" content="https://pathfinder357.github.io/assets/built/images/author-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -100,7 +100,7 @@
         "@type": "WebPage",
         "@id": "https://pathfinder357.github.io/data-array-list"
     },
-    "description": "목차. 1 2 3 4 5 배열과 리스트 파이썬은 씨언어의 배열의 셀과 다르게 데이터의가 저장된곳의 주소가 저장된다. 즉 항상 객체의 주소만 저장하기때문에, 리스트의 셀의 크기를 메모리의 주소를 표현 할수있는 8바이트로 고정하면 된다. 모든셀의 크기가 같기 때문에 index에 의해 O(1)시간 접근이 가능하다. C는 배열에 읽기와 쓰기만 적용되지만 파이썬의 리스트는 pop, insert,"
+    "description": "목차. 1 2 3 4 5 배열과 리스트 일반적인 프로그램 동작 방식 A[2] = A[2] + 1 (쓰기) (대입) (읽기) (산술) 파이썬은 씨언어의 배열의 셀과 다르게 데이터의가 저장된곳의 주소가 저장된다. 즉 항상 객체의 주소만 저장하기때문에, 리스트의 셀의 크기를 메모리의 주소를 표현 할수있는 8바이트로 고정하면 된다. 모든셀의 크기가 같기 때문에 index에"
 }
     </script>
 
@@ -206,6 +206,11 @@ into the {body} of the default.hbs template -->
 </ul>
 
 <h3 id="배열과-리스트">배열과 리스트</h3>
+<p>일반적인 프로그램 동작 방식</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A[2]    =      A[2]   +  1
+(쓰기)  (대입)  (읽기)   (산술)
+</code></pre></div></div>
+
 <p>파이썬은 씨언어의 배열의 셀과 다르게 데이터의가 저장된곳의 주소가 저장된다.</p>
 
 <p>즉 항상 객체의 주소만 저장하기때문에, 리스트의 셀의 크기를 메모리의 주소를 표현 할수있는 8바이트로 고정하면 된다.</p>
@@ -216,21 +221,30 @@ into the {body} of the default.hbs template -->
 
 <p>리스트는 용량을 자동조절(동적배열)</p>
 
-<p>ex) how to append operation</p>
+<p>ex) def append principle of operation(Pseudo code)</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">A</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="s">"
-if A.n &lt; A.capacity:
-A[n] = x
-A.n = n +1
-else: (A.n == A.capacity)
-B = A.capacity *2 (새로 할당)
-for i in range(n):
-B[i] = A[i]
-del A
-A = B
-A[n] = x
-A.n = n+1
-</span></code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+<span class="mf">1.</span> <span class="k">if</span> <span class="n">A</span><span class="p">.</span><span class="n">capacity</span> <span class="o">==</span> <span class="n">A</span><span class="p">.</span><span class="n">n</span><span class="p">:</span>  <span class="c1">#needed to resize!!
+</span>    <span class="n">a</span><span class="p">.</span> <span class="n">더큰</span> <span class="n">메모리를</span> <span class="n">가진</span> <span class="n">리스트</span> <span class="n">B를</span> <span class="n">할당하고</span> <span class="n">B</span><span class="p">.</span><span class="n">capacity</span> <span class="n">와</span> <span class="n">B</span><span class="p">.</span><span class="n">n으로</span> <span class="n">갱신하자</span>  
+    <span class="n">b</span><span class="p">.</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">c</span><span class="p">.</span> <span class="n">dispose</span> <span class="n">A</span>
+    <span class="n">d</span><span class="p">.</span> <span class="n">A</span> <span class="o">=</span> <span class="n">B</span>
+<span class="mf">2.</span> <span class="n">A</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+<span class="mf">3.</span> <span class="n">A</span><span class="p">.</span><span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<h4 id="리스트가-가지는-강력한-동작들">리스트가 가지는 강력한 동작들</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mf">1.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="p">:</span> <span class="c1">#맨 오른쪽(뒤)에 새로운 값 val를 삽입
+</span><span class="mf">2.</span><span class="n">A</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="n">i</span><span class="p">):</span> <span class="c1">#A[i]값을 지운후 리턴(i의 오른쪽 값들은 왼쪽으로 한칸씩 당겨져 cell의 수 감소)
+</span><span class="mf">3.</span><span class="n">A</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span> <span class="p">,</span><span class="n">val</span><span class="p">)</span> <span class="p">:</span> <span class="n">val</span> <span class="n">연산</span><span class="p">(</span> <span class="n">단</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="p">..</span> <span class="n">값들은</span> <span class="n">오른쪽으로</span> <span class="n">한칸씩</span> <span class="n">이동해</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="n">를</span> <span class="n">비운후</span> <span class="p">,</span> <span class="n">val</span> <span class="n">값</span> <span class="n">저장</span><span class="p">)</span>
+<span class="mf">4.</span><span class="n">A</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="p">:</span> <span class="n">val값</span> <span class="n">제거</span>
+<span class="mf">5.</span><span class="n">A</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="p">:</span> <span class="n">val</span> <span class="n">값이</span> <span class="n">처음으로</span> <span class="n">등장하는</span> <span class="n">index</span> <span class="n">리턴</span>
+<span class="mf">6.</span><span class="n">A</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="p">:</span> <span class="n">val값이</span> <span class="n">몇번</span> <span class="n">등장하는</span> <span class="n">지</span> <span class="n">횟수를</span> <span class="n">세어</span> <span class="n">리턴</span>
+<span class="mf">7.</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="p">]</span> <span class="p">:</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="p">...,</span> <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="n">까지를</span> <span class="n">복사해</span> <span class="n">새로운</span> <span class="n">리스트</span> <span class="n">생성하여</span> <span class="n">리턴</span><span class="p">(</span><span class="n">slicing</span> <span class="n">연산</span><span class="p">)</span>
+<span class="mf">8.</span><span class="n">val</span> <span class="ow">in</span> <span class="n">A</span> <span class="p">:</span> <span class="n">맴버십</span> <span class="n">연산자</span> <span class="o">-</span><span class="n">A에</span> <span class="n">val가</span> <span class="n">있으면</span> <span class="bp">True</span><span class="p">,</span> <span class="n">없으면</span> <span class="bp">False</span>
+</code></pre></div></div>
 
 
                 </div>
