@@ -295,8 +295,8 @@ into the {body} of the default.hbs template -->
         <span class="k">except</span> <span class="nb">IndexError</span><span class="p">:</span>
             <span class="k">print</span><span class="p">(</span><span class="s">'stack is empty'</span><span class="p">)</span>
     
-    <span class="c1">#len()호출하면 stack의 item수 반환
-</span>    <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c1">#stack의 item수 반환
+</span>    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">items</span><span class="p">)</span>
     
     <span class="k">def</span> <span class="nf">paresq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
@@ -312,14 +312,46 @@ into the {body} of the default.hbs template -->
             <span class="k">return</span> <span class="bp">False</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">True</span>
+  
+</code></pre></div></div>
 
-<span class="n">S</span><span class="o">=</span> <span class="n">Stack</span><span class="p">()</span>
-<span class="n">S</span><span class="p">.</span><span class="n">paresq</span><span class="p">(</span><span class="s">"("</span><span class="p">)</span>
-<span class="n">S</span><span class="p">.</span><span class="n">paresq</span><span class="p">(</span><span class="s">"("</span><span class="p">)</span>
-<span class="n">S</span><span class="p">.</span><span class="n">paresq</span><span class="p">(</span><span class="s">")"</span><span class="p">)</span>
-<span class="n">S</span><span class="p">.</span><span class="n">paresq</span><span class="p">(</span><span class="s">")"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">))</span>
-    
+<h3 id="postfix-변환기">postfix 변환기</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">stack_queue</span> <span class="kn">import</span> <span class="n">Stack</span>
+
+<span class="k">def</span> <span class="nf">postfix_op</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">Stack</span><span class="p">()</span>
+    <span class="n">outstack</span><span class="o">=</span><span class="p">[]</span>
+    <span class="n">priority</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">'*'</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+        <span class="s">'/'</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+        <span class="s">'+'</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+        <span class="s">'-'</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+        <span class="s">')'</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span>
+        <span class="s">'('</span><span class="p">:</span><span class="mi">1</span>
+    <span class="p">}</span>
+    <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">token</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s">'+-*/()'</span><span class="p">:</span>
+            <span class="n">outstack</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">token</span> <span class="o">==</span> <span class="s">'('</span><span class="p">:</span>
+            <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">token</span> <span class="o">==</span> <span class="s">')'</span><span class="p">:</span>
+            <span class="k">while</span> <span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">()</span> <span class="o">!=</span> <span class="s">'('</span><span class="p">:</span>
+                <span class="n">outstack</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">())</span>
+            <span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">s</span><span class="p">.</span><span class="n">is_empty</span><span class="p">():</span>
+                <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">while</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">priority</span><span class="p">[</span><span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">()]</span> <span class="o">&gt;=</span> <span class="n">priority</span><span class="p">[</span><span class="n">token</span><span class="p">]:</span>
+                        <span class="n">outstack</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">())</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">break</span>
+                <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">s</span><span class="p">.</span><span class="n">is_empty</span><span class="p">():</span>
+        <span class="n">outstack</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">outstack</span>
 </code></pre></div></div>
 
 
