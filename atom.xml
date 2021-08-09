@@ -8,6 +8,21 @@
     
       
       <item>
+        <title>자료구조 (4) 큐</title>
+        
+          <description>&lt;h2 id=&quot;queue&quot;&gt;Queue&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Fri, 06 Aug 2021 20:33:00 +0900</pubDate>
+        <link>
+        https://pathfinder357.github.io/data-queue</link>
+        <guid isPermaLink="true">https://pathfinder357.github.io/data-queue</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>자료구조 (1) 어레이와 리스트 차이</title>
         
           <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;목차. &lt;/span&gt;&lt;/p&gt;
@@ -49,7 +64,7 @@
     
       
       <item>
-        <title>자료구조 (5) 트리</title>
+        <title>자료구조 (6) 트리</title>
         
           <description>&lt;p&gt;&lt;strong&gt;프로그래밍 자료구조 마지막장 트리.&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&quot;lcrs-트리&quot;&gt;LCRS 트리&lt;/h3&gt;
@@ -65,7 +80,7 @@
     
       
       <item>
-        <title>자료구조 (4) 리스트</title>
+        <title>자료구조 (5) 링크드리스트</title>
         
           <description>&lt;p&gt;&lt;strong&gt;목록형 자료구조인 리스트를 통해 자료구조의 기초를 다질것입니다.&lt;/strong&gt;&lt;/p&gt;
 

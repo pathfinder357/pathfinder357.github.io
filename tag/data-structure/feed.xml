@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://pathfinder357.github.io/tag/data-structure/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://pathfinder357.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-08-06T16:00:49+09:00</updated>
+  <updated>2021-08-09T16:44:38+09:00</updated>
   <id>https://pathfinder357.github.io/tag/data-structure/feed.xml</id>
 
   
@@ -30,6 +30,102 @@
   
   
 
+  
+    <entry>
+      <title type="html">자료구조 (4) 큐</title>
+      <link href="https://pathfinder357.github.io/data-queue" rel="alternate" type="text/html" title="자료구조 (4) 큐" />
+      <published>2021-08-06T20:33:00+09:00</published>
+      <updated>2021-08-06T20:33:00+09:00</updated>
+      <id>https://pathfinder357.github.io/data-queue</id>
+      <content type="html" xml:base="https://pathfinder357.github.io/data-queue">&lt;h2 id=&quot;queue&quot;&gt;Queue&lt;/h2&gt;
+
+&lt;h4 id=&quot;fifofirst-in-first-out규칙의-순차적-자료구조&quot;&gt;FIFO(first-in first-out)규칙의 순차적 자료구조&lt;/h4&gt;
+
+&lt;p&gt;자료를 추가 / 삭제하는 통상적으로 합의한 용어&lt;/p&gt;
+
+&lt;p&gt;insert -&amp;gt; enqueue&lt;/p&gt;
+
+&lt;p&gt;delete -&amp;gt; dequeue&lt;/p&gt;
+
+&lt;p&gt;이런식으로 작동할려면 어떻게 해야할까?&lt;/p&gt;
+
+&lt;p&gt;stack은 어디까지 쌓여있는지에 대한 정보 즉 top()에 있는 값의 인덱스만 가지고 작동을 다루었다면&lt;/p&gt;
+
+&lt;p&gt;queue는 1.enqueue는 차곡차곡 쌓여서 어디까지 쌓여있는지&lt;/p&gt;
+
+&lt;p&gt;2.dqueue 가장 밑에 있는 다음에 나갈 값이 어디 인덱스가 있는지 즉 두개의 인덱스 이 두개로 문제를 해결.&lt;/p&gt;
+
+&lt;p&gt;여기서 주의할점은 dequeue를 한다고 해서 실제로 값이 삭제되는 것이 아니고&lt;/p&gt;
+
+&lt;p&gt;index를 조절하는것일 뿐이다.&lt;/p&gt;
+
+&lt;h2 id=&quot;큐-설계&quot;&gt;큐 설계&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python~~~&quot;&gt;class Queue:
+    def __init__(self):
+        self.items = []
+        self.front_index = 0
+        self.size =0
+
+    def enqueue(self, val):
+        self.items.append(val)
+        self.size += 1
+    
+    def dequeue(self):
+        if self.front_index == len(self.items):
+            print('Queue is empty')
+            return None
+        else:
+            x = self.items[self.front_index]
+            self.front_index += 1
+            self.size -= 1
+            self.items.pop(0)
+            return x
+
+    def size(self):
+        return len(self.size)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;josephus-problem&quot;&gt;Josephus Problem&lt;/h4&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;stack_queue&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Queue&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;rullet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Q&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cnt&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;enqueue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cnt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;Q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;enqueue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dequeue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dequeue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>yujunchoi</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="data-structure" />
+      
+
+      
+        <summary type="html">Queue</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">자료구조 (1) 어레이와 리스트 차이</title>
@@ -330,43 +426,139 @@
     </entry>
   
     <entry>
-      <title type="html">자료구조 (4) 리스트</title>
-      <link href="https://pathfinder357.github.io/data-list" rel="alternate" type="text/html" title="자료구조 (4) 리스트" />
+      <title type="html">자료구조 (5) 링크드리스트</title>
+      <link href="https://pathfinder357.github.io/data-list" rel="alternate" type="text/html" title="자료구조 (5) 링크드리스트" />
       <published>2021-07-27T01:40:00+09:00</published>
       <updated>2021-07-27T01:40:00+09:00</updated>
       <id>https://pathfinder357.github.io/data-list</id>
       <content type="html" xml:base="https://pathfinder357.github.io/data-list">&lt;p&gt;&lt;strong&gt;목록형 자료구조인 리스트를 통해 자료구조의 기초를 다질것입니다.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;링크드-리스트&quot;&gt;링크드 리스트&lt;/h3&gt;
+&lt;h1 id=&quot;링크드-리스트&quot;&gt;링크드 리스트&lt;/h1&gt;
 &lt;hr /&gt;
-&lt;p&gt;링크를 이용해서 리스트를 만든다는 뜻
-리스트 내의 각요소는 노드라고 부릅니다.&lt;/p&gt;
 
-&lt;p&gt;링크드 리스트는 ‘노드를 연결해서 만드는 리스트’ 라고 해서 붙여진 이름입니다.&lt;/p&gt;
+&lt;p&gt;링크드 리스트는 한방향 리스트와 양방향 리스트가 있다.&lt;/p&gt;
 
-&lt;p&gt;노드안에는 주소를 저장하는 레퍼런스와 , 벨류가 들어갑니다.&lt;/p&gt;
+&lt;p&gt;1.링크드리스트는 파이썬의 리스트와 이름만 비슷하지 다른 개념이다.&lt;/p&gt;
 
-&lt;p&gt;이를 주렁주렁 엮으면 링크드 리스트가 되는 것입니다.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;파이썬의 리스트는 C의 array와 유사한 개념으로 index를 통해 접근하고 수정한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;링크드 리스트는 노드가 링크에 의해 기차처럼 연결된 순차 자료구조로 링크를 따라 원하는 
+노드의 데이터를 접근하고 수정한다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;링크드 리스트가 중요한 이유는 후에 트리와 그래프의 기본적인 구조를 뒷받침하기
-때문입니다.&lt;/p&gt;
-
-&lt;p&gt;노드를 파이썬으로 구성하면 밑의 방식으로 구현됩니다.&lt;/p&gt;
+&lt;p&gt;2.노드: 실제 값을 위한 data정보(보통 key값을 저장)와 인접노드를 연결하는 link로 구성&lt;/p&gt;
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; 
-        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nextnode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;#addr
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;find를 하게되면  timecomplexd O(n)
-insert와 delete의 timecomplexed O(1)&lt;/p&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;next&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;        
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;노드는 자료와 다음 노드를 가르키는 참조값으로 구성 됩니다.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;3.한방향 링크드 리스트&lt;/p&gt;
+
 &lt;p&gt;구현하고자 하는 방식
 노드 생성(structure) -&amp;gt; 노드 추가-&amp;gt; 노드 탐색-&amp;gt; 노드 삭제-&amp;gt; 노드 삽입-&amp;gt;노드수 세기&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SLL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__iter__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;next&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__str__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;-&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;여기서 iterator &amp;amp; generator 개념에 대해서 잠깐 짚고 가보자&lt;/p&gt;
+
+&lt;h4 id=&quot;iterator란&quot;&gt;iterator란?&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;리스트, 집합, 딕셔너리와 같은 타입이나, 문자열은 for -in 구문을 통해서 “반복적”으로 하나씩 데이터를 꺼내서 처리할수있다.
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;이와 같이 여러개의 데이터를 포함한 타입중에서 반복적으로 하나하나 꺼내어 처리가능한 컬랙션이나
+sequence 들을 순환가능(iterable) 객체라고 한다.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;iterator는 next()함수를 구현한 객체를 말하며 next()함수는 순환가능한 객체의 다음 원소 반환&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;파이썬의 iterable 형: list, dict, set, bytes, tuple, range&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;iter()함수: iterable 형 객체를 iterator 객체로 만드는 파이썬 내장함수&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;next() 함수를 이용해서 iterator 객체의 다음요소를 얻는데 만약 더이상 가져올 객체가
+없을경우 StopIteration 예외를 발생시킨다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;generator-란&quot;&gt;generator 란?&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;제너레이터 객체는 모든 값을 메모리에 올려두고 이용하는 것이 아니라 필요할 때마다 생성해서 반환하는 일을함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ex)&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;my_generator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_generator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;my_generator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;generator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이와같이 반복자와 동일한 일을 하는것처럼 보이지만 여기에서 생성된 1,2,3을 미리 메모리에 만드는것이 아니라 for문에 필요로 할때마다 my_generator로 부터 받아오며 메모리에서 보관하지 않는 점이다. 이를 lazy evaluation이라 함&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;yield
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;일반적인 함수의 return문과 유사하지만 제너레이터를 반환한다는 점에서 return과 차이가 있다.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;여기서 return 문과 yield 개념에 대해서 정리해보자 확실한 비교를 위해서&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;return 은 로컬변수로서 함수가 값을 반환할때 사라진다.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;yield 은 로컬변수가 함수를 빠져나올때 throw away 한후에도 값을 그대로 지님
+즉 함수를 완전히 끝내는게 아니라 필요할때마다 돌려주는 것이다 즉 함수를 실행하면서 바깥에다 값을 던지는것&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;yield 바로 밑의 sentence 를 실행&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;주의사항: 제너레이터는 실행할때 함수의 몸체를 실행하는것이 아니라, 제너레이터 함수가 가진 객체를 반환하는 일을한다.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;제너레이터는 한번 생성해서 반환한 객체를 보관하지 않기때문에 이전의 코드를 실행한수 추가한 코들르 실행하면 아무런 객체도 출력되지 않음&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;제너레이터는 한번 실행하면 아무것도 반환하지않음&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
@@ -464,6 +656,7 @@ insert와 delete의 timecomplexed O(1)&lt;/p&gt;
                 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
                 &lt;span class=&quot;n&quot;&gt;target&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;next&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
 &lt;p&gt;공부하던 와중 가장 햇갈린 부분 삽입 부분에서 밑의 코드&lt;/p&gt;
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;n&quot;&gt;tail&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;next&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
@@ -476,9 +669,7 @@ insert와 delete의 timecomplexed O(1)&lt;/p&gt;
 꼬리 노드에 도달하면 마지막 노드의 .next에 새로운노드의 주소를 저장하고 size를 추가시키는 부분인데
 while 반복문중에서 tail = tail.next 이부분이 이해가 잘 가지가 않았다. 
 하지만 공부했던 것을 다시 생각해보니 좌변에 있는 변수는 우변에 있는 어떤것에 대한 주소의 별칭일 뿐이다.
-즉 tail =tail.next는 tail이 가르키는 곳이 tail.next가 가르키는 곳으로 바뀌었다는 뜻인것이다.&lt;/p&gt;
-
-&lt;h3 id=&quot;더블-링크드-리스트&quot;&gt;더블 링크드 리스트&lt;/h3&gt;</content>
+즉 tail =tail.next는 tail이 가르키는 곳이 tail.next가 가르키는 곳으로 바뀌었다는 뜻인것이다.&lt;/p&gt;</content>
 
       
       
@@ -594,8 +785,8 @@ while 반복문중에서 tail = tail.next 이부분이 이해가 잘 가지가 �
     </entry>
   
     <entry>
-      <title type="html">자료구조 (5) 트리</title>
-      <link href="https://pathfinder357.github.io/data-Tree" rel="alternate" type="text/html" title="자료구조 (5) 트리" />
+      <title type="html">자료구조 (6) 트리</title>
+      <link href="https://pathfinder357.github.io/data-Tree" rel="alternate" type="text/html" title="자료구조 (6) 트리" />
       <published>2021-07-27T01:40:00+09:00</published>
       <updated>2021-07-27T01:40:00+09:00</updated>
       <id>https://pathfinder357.github.io/data-Tree</id>

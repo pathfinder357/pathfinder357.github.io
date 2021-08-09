@@ -11,7 +11,7 @@
 
 
 
-    <title>자료구조 (4) 리스트</title>
+    <title>자료구조 (5) 링크드리스트</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -57,8 +57,8 @@
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="Pathfinder practice blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="자료구조 (4) 리스트" />
-    <meta property="og:description" content="목록형 자료구조인 리스트를 통해 자료구조의 기초를 다질것입니다. 링크드 리스트 링크를 이용해서 리스트를 만든다는 뜻 리스트 내의 각요소는 노드라고 부릅니다. 링크드 리스트는 ‘노드를 연결해서 만드는 리스트’ 라고 해서 붙여진 이름입니다. 노드안에는 주소를 저장하는 레퍼런스와 , 벨류가 들어갑니다. 이를 주렁주렁 엮으면 링크드 리스트가 되는 것입니다. 링크드 리스트가 중요한 이유는 후에 트리와 그래프의" />
+    <meta property="og:title" content="자료구조 (5) 링크드리스트" />
+    <meta property="og:description" content="목록형 자료구조인 리스트를 통해 자료구조의 기초를 다질것입니다. 링크드 리스트 링크드 리스트는 한방향 리스트와 양방향 리스트가 있다. 1.링크드리스트는 파이썬의 리스트와 이름만 비슷하지 다른 개념이다. 파이썬의 리스트는 C의 array와 유사한 개념으로 index를 통해 접근하고 수정한다. 링크드 리스트는 노드가 링크에 의해 기차처럼 연결된 순차 자료구조로 링크를 따라 원하는 노드의 데이터를 접근하고 수정한다. 2.노드:" />
     <meta property="og:url" content="https://pathfinder357.github.io/data-list" />
     <meta property="og:image" content="https://pathfinder357.github.io/assets/built/images/author-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -67,8 +67,8 @@
     <meta property="article:modified_time" content="2021-07-27T01:40:00+09:00" />
     <meta property="article:tag" content="Data-structure" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="자료구조 (4) 리스트" />
-    <meta name="twitter:description" content="목록형 자료구조인 리스트를 통해 자료구조의 기초를 다질것입니다. 링크드 리스트 링크를 이용해서 리스트를 만든다는 뜻 리스트 내의 각요소는 노드라고 부릅니다. 링크드 리스트는 ‘노드를 연결해서 만드는 리스트’ 라고 해서 붙여진 이름입니다. 노드안에는 주소를 저장하는 레퍼런스와 , 벨류가 들어갑니다. 이를 주렁주렁 엮으면 링크드 리스트가 되는 것입니다. 링크드 리스트가 중요한 이유는 후에 트리와 그래프의" />
+    <meta name="twitter:title" content="자료구조 (5) 링크드리스트" />
+    <meta name="twitter:description" content="목록형 자료구조인 리스트를 통해 자료구조의 기초를 다질것입니다. 링크드 리스트 링크드 리스트는 한방향 리스트와 양방향 리스트가 있다. 1.링크드리스트는 파이썬의 리스트와 이름만 비슷하지 다른 개념이다. 파이썬의 리스트는 C의 array와 유사한 개념으로 index를 통해 접근하고 수정한다. 링크드 리스트는 노드가 링크에 의해 기차처럼 연결된 순차 자료구조로 링크를 따라 원하는 노드의 데이터를 접근하고 수정한다. 2.노드:" />
     <meta name="twitter:url" content="https://pathfinder357.github.io/" />
     <meta name="twitter:image" content="https://pathfinder357.github.io/assets/built/images/author-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -100,7 +100,7 @@
         "@type": "WebPage",
         "@id": "https://pathfinder357.github.io/data-list"
     },
-    "description": "목록형 자료구조인 리스트를 통해 자료구조의 기초를 다질것입니다. 링크드 리스트 링크를 이용해서 리스트를 만든다는 뜻 리스트 내의 각요소는 노드라고 부릅니다. 링크드 리스트는 ‘노드를 연결해서 만드는 리스트’ 라고 해서 붙여진 이름입니다. 노드안에는 주소를 저장하는 레퍼런스와 , 벨류가 들어갑니다. 이를 주렁주렁 엮으면 링크드 리스트가 되는 것입니다. 링크드 리스트가 중요한 이유는 후에 트리와 그래프의"
+    "description": "목록형 자료구조인 리스트를 통해 자료구조의 기초를 다질것입니다. 링크드 리스트 링크드 리스트는 한방향 리스트와 양방향 리스트가 있다. 1.링크드리스트는 파이썬의 리스트와 이름만 비슷하지 다른 개념이다. 파이썬의 리스트는 C의 array와 유사한 개념으로 index를 통해 접근하고 수정한다. 링크드 리스트는 노드가 링크에 의해 기차처럼 연결된 순차 자료구조로 링크를 따라 원하는 노드의 데이터를 접근하고 수정한다. 2.노드:"
 }
     </script>
 
@@ -113,7 +113,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="자료구조 (4) 리스트" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="자료구조 (5) 링크드리스트" href="/feed.xml" />
 
 
 </head>
@@ -185,7 +185,7 @@ into the {body} of the default.hbs template -->
                         
                     
                 </section>
-                <h1 class="post-full-title">자료구조 (4) 리스트</h1>
+                <h1 class="post-full-title">자료구조 (5) 링크드리스트</h1>
             </header>
 
             <!--
@@ -198,36 +198,132 @@ into the {body} of the default.hbs template -->
                 <div class="kg-card-markdown">
                     <p><strong>목록형 자료구조인 리스트를 통해 자료구조의 기초를 다질것입니다.</strong></p>
 
-<h3 id="링크드-리스트">링크드 리스트</h3>
+<h1 id="링크드-리스트">링크드 리스트</h1>
 <hr />
-<p>링크를 이용해서 리스트를 만든다는 뜻
-리스트 내의 각요소는 노드라고 부릅니다.</p>
 
-<p>링크드 리스트는 ‘노드를 연결해서 만드는 리스트’ 라고 해서 붙여진 이름입니다.</p>
+<p>링크드 리스트는 한방향 리스트와 양방향 리스트가 있다.</p>
 
-<p>노드안에는 주소를 저장하는 레퍼런스와 , 벨류가 들어갑니다.</p>
+<p>1.링크드리스트는 파이썬의 리스트와 이름만 비슷하지 다른 개념이다.</p>
 
-<p>이를 주렁주렁 엮으면 링크드 리스트가 되는 것입니다.</p>
+<ul>
+  <li>
+    <p>파이썬의 리스트는 C의 array와 유사한 개념으로 index를 통해 접근하고 수정한다.</p>
+  </li>
+  <li>
+    <p>링크드 리스트는 노드가 링크에 의해 기차처럼 연결된 순차 자료구조로 링크를 따라 원하는 
+노드의 데이터를 접근하고 수정한다.</p>
+  </li>
+</ul>
 
-<p>링크드 리스트가 중요한 이유는 후에 트리와 그래프의 기본적인 구조를 뒷받침하기
-때문입니다.</p>
-
-<p>노드를 파이썬으로 구성하면 밑의 방식으로 구현됩니다.</p>
+<p>2.노드: 실제 값을 위한 data정보(보통 key값을 저장)와 인접노드를 연결하는 link로 구성</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Node</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">data</span><span class="p">):</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">data</span><span class="o">=</span><span class="n">data</span> 
-        <span class="bp">self</span><span class="p">.</span><span class="n">nextnode</span><span class="o">=</span><span class="bp">None</span>  <span class="c1">#addr
-</span></code></pre></div></div>
-
-<p>find를 하게되면  timecomplexd O(n)
-insert와 delete의 timecomplexed O(1)</p>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">key</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="p">.</span><span class="nb">next</span> <span class="o">=</span><span class="bp">None</span>        
+</code></pre></div></div>
 
 <ul>
   <li>노드는 자료와 다음 노드를 가르키는 참조값으로 구성 됩니다.</li>
 </ul>
 
+<p>3.한방향 링크드 리스트</p>
+
 <p>구현하고자 하는 방식
 노드 생성(structure) -&gt; 노드 추가-&gt; 노드 탐색-&gt; 노드 삭제-&gt; 노드 삽입-&gt;노드수 세기</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SLL</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">head</span> <span class="o">=</span><span class="bp">None</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">size</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">head</span>
+        <span class="k">while</span> <span class="n">v</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">v</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="nb">next</span>
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">"-&gt;"</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">)</span>
+</code></pre></div></div>
+
+<hr />
+<p>여기서 iterator &amp; generator 개념에 대해서 잠깐 짚고 가보자</p>
+
+<h4 id="iterator란">iterator란?</h4>
+<ul>
+  <li>리스트, 집합, 딕셔너리와 같은 타입이나, 문자열은 for -in 구문을 통해서 “반복적”으로 하나씩 데이터를 꺼내서 처리할수있다.
+    <ul>
+      <li>
+        <p>이와 같이 여러개의 데이터를 포함한 타입중에서 반복적으로 하나하나 꺼내어 처리가능한 컬랙션이나
+sequence 들을 순환가능(iterable) 객체라고 한다.</p>
+      </li>
+      <li>
+        <p>iterator는 next()함수를 구현한 객체를 말하며 next()함수는 순환가능한 객체의 다음 원소 반환</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>파이썬의 iterable 형: list, dict, set, bytes, tuple, range</p>
+  </li>
+  <li>
+    <p>iter()함수: iterable 형 객체를 iterator 객체로 만드는 파이썬 내장함수</p>
+  </li>
+  <li>next() 함수를 이용해서 iterator 객체의 다음요소를 얻는데 만약 더이상 가져올 객체가
+없을경우 StopIteration 예외를 발생시킨다.</li>
+</ul>
+
+<hr />
+
+<h4 id="generator-란">generator 란?</h4>
+
+<ul>
+  <li>제너레이터 객체는 모든 값을 메모리에 올려두고 이용하는 것이 아니라 필요할 때마다 생성해서 반환하는 일을함</li>
+</ul>
+
+<p>ex)</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">my_generator</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">my_generator</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">my_generator</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="nc">generator</span><span class="o">&gt;</span>
+</code></pre></div></div>
+
+<p>이와같이 반복자와 동일한 일을 하는것처럼 보이지만 여기에서 생성된 1,2,3을 미리 메모리에 만드는것이 아니라 for문에 필요로 할때마다 my_generator로 부터 받아오며 메모리에서 보관하지 않는 점이다. 이를 lazy evaluation이라 함</p>
+
+<ul>
+  <li>yield
+    <ul>
+      <li>
+        <p>일반적인 함수의 return문과 유사하지만 제너레이터를 반환한다는 점에서 return과 차이가 있다.</p>
+      </li>
+      <li>
+        <p>여기서 return 문과 yield 개념에 대해서 정리해보자 확실한 비교를 위해서</p>
+      </li>
+      <li>
+        <p>return 은 로컬변수로서 함수가 값을 반환할때 사라진다.</p>
+      </li>
+      <li>
+        <p>yield 은 로컬변수가 함수를 빠져나올때 throw away 한후에도 값을 그대로 지님
+즉 함수를 완전히 끝내는게 아니라 필요할때마다 돌려주는 것이다 즉 함수를 실행하면서 바깥에다 값을 던지는것</p>
+      </li>
+      <li>
+        <p>yield 바로 밑의 sentence 를 실행</p>
+      </li>
+      <li>
+        <p>주의사항: 제너레이터는 실행할때 함수의 몸체를 실행하는것이 아니라, 제너레이터 함수가 가진 객체를 반환하는 일을한다.</p>
+      </li>
+      <li>
+        <p>제너레이터는 한번 생성해서 반환한 객체를 보관하지 않기때문에 이전의 코드를 실행한수 추가한 코들르 실행하면 아무런 객체도 출력되지 않음</p>
+      </li>
+      <li>
+        <p>제너레이터는 한번 실행하면 아무것도 반환하지않음</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Node</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="nb">next</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
@@ -325,6 +421,7 @@ insert와 delete의 timecomplexed O(1)</p>
                 <span class="k">print</span><span class="p">(</span><span class="n">target</span><span class="p">.</span><span class="n">data</span><span class="p">)</span>
                 <span class="n">target</span> <span class="o">=</span> <span class="n">target</span><span class="p">.</span><span class="nb">next</span>
 </code></pre></div></div>
+
 <p>공부하던 와중 가장 햇갈린 부분 삽입 부분에서 밑의 코드</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">tail</span><span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">head</span>
     <span class="k">while</span> <span class="n">tail</span><span class="p">.</span><span class="nb">next</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
@@ -338,8 +435,6 @@ insert와 delete의 timecomplexed O(1)</p>
 while 반복문중에서 tail = tail.next 이부분이 이해가 잘 가지가 않았다. 
 하지만 공부했던 것을 다시 생각해보니 좌변에 있는 변수는 우변에 있는 어떤것에 대한 주소의 별칭일 뿐이다.
 즉 tail =tail.next는 tail이 가르키는 곳이 tail.next가 가르키는 곳으로 바뀌었다는 뜻인것이다.</p>
-
-<h3 id="더블-링크드-리스트">더블 링크드 리스트</h3>
 
 
                 </div>
@@ -392,7 +487,7 @@ while 반복문중에서 tail = tail.next 이부분이 이해가 잘 가지가 �
                         var disqus_config = function () {
                             var this_page_url = 'https://pathfinder357.github.io/data-list';
                             var this_page_identifier = '/data-list';
-                            var this_page_title = '자료구조 (4) 리스트';
+                            var this_page_title = '자료구조 (5) 링크드리스트';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -439,6 +534,15 @@ while 반복문중에서 tail = tail.next 이부분이 이해가 잘 가지가 �
                                     
                                         
                                         
+                                            <li><a href="/data-queue">자료구조 (4) 큐</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
                                             <li><a href="/data-array-list">자료구조 (1) 어레이와 리스트 차이</a></li>
                                         
                                     
@@ -456,8 +560,6 @@ while 반복문중에서 tail = tail.next 이부분이 이해가 잘 가지가 �
                                   
                                     
                                         
-                                        
-                                            <li><a href="/data-Tree">자료구조 (5) 트리</a></li>
                                         
                                     
                                   
@@ -482,7 +584,7 @@ while 반복문중에서 tail = tail.next 이부분이 이해가 잘 가지가 �
                         <footer class="read-next-card-footer">
                             <a href="/tag/data-structure/">
                                 
-                                    See all 4 posts  →
+                                    See all 5 posts  →
                                 
                             </a>
                         </footer>
@@ -511,7 +613,7 @@ while 반복문중에서 tail = tail.next 이부분이 이해가 잘 가지가 �
                         
                     
 
-                    <h2 class="post-card-title">자료구조 (5) 트리</h2>
+                    <h2 class="post-card-title">자료구조 (6) 트리</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
@@ -598,13 +700,13 @@ LCRS 트리
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">자료구조 (4) 리스트</div>
+    <div class="floating-header-title">자료구조 (5) 링크드리스트</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0+%284%29+%EB%A6%AC%EC%8A%A4%ED%8A%B8&amp;url=https://pathfinder357.github.iodata-list"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0+%285%29+%EB%A7%81%ED%81%AC%EB%93%9C%EB%A6%AC%EC%8A%A4%ED%8A%B8&amp;url=https://pathfinder357.github.iodata-list"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
