@@ -1,4 +1,182 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://pathfinder357.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://pathfinder357.github.io/" rel="alternate" type="text/html" /><updated>2021-08-09T16:44:38+09:00</updated><id>https://pathfinder357.github.io/feed.xml</id><title type="html">Pathfinder practice blog</title><subtitle>공부내용 정리 블로그</subtitle><entry><title type="html">자료구조 (4) 큐</title><link href="https://pathfinder357.github.io/data-queue" rel="alternate" type="text/html" title="자료구조 (4) 큐" /><published>2021-08-06T20:33:00+09:00</published><updated>2021-08-06T20:33:00+09:00</updated><id>https://pathfinder357.github.io/data-queue</id><content type="html" xml:base="https://pathfinder357.github.io/data-queue">&lt;h2 id=&quot;queue&quot;&gt;Queue&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://pathfinder357.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://pathfinder357.github.io/" rel="alternate" type="text/html" /><updated>2021-08-13T14:01:38+09:00</updated><id>https://pathfinder357.github.io/feed.xml</id><title type="html">Pathfinder practice blog</title><subtitle>공부내용 정리 블로그</subtitle><entry><title type="html">자료구조 (7) 해시 테이블</title><link href="https://pathfinder357.github.io/hash-table" rel="alternate" type="text/html" title="자료구조 (7) 해시 테이블" /><published>2021-08-11T21:40:00+09:00</published><updated>2021-08-11T21:40:00+09:00</updated><id>https://pathfinder357.github.io/hash-table</id><content type="html" xml:base="https://pathfinder357.github.io/hash-table">&lt;h3 id=&quot;hash-table&quot;&gt;Hash Table&lt;/h3&gt;
+
+&lt;hr /&gt;
+&lt;ol&gt;
+  &lt;li&gt;해시 테이블은 일종의 사전이고, Python 의 dict 자료구조처럼 다음 연산을 빠르게 지원
+    &lt;ol&gt;
+      &lt;li&gt;if(데이터가 key, value 값의 쌍으로 구성
+        &lt;ul&gt;
+          &lt;li&gt;insert(key, val)     #(key, val)를 해시 테이블에 저장, 같은 키가 있다면 overwirte&lt;/li&gt;
+          &lt;li&gt;remove(key, val)     #(key, val)가 해시 테이블에 있다면 제거(delete)&lt;/li&gt;
+          &lt;li&gt;search(key)          #(key, val)를 찾아 리턴, 없다면 알려줌&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;해시 테이블은 보통 정보를 담아 저장할수있는 서랍장 행태로 구현&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;가장 핵심적인 과정은 각 정보를 몇번째 서랍에 넣을지를 결정하는 것&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;정보 K(key)가 저장될 서랍장(slot) 번호를 계산하는 함수 f()를 hash func 이라 한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+&lt;h4 id=&quot;hash-func&quot;&gt;hash func&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;만약 key값이 정수가 아니라면?&amp;gt; 실수이거나 문자열이라면?
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;(실수, 문자열) key 값을 정수에 대응시키는 prehash함수를 먼저 사용해 변환&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;hash&lt;/strong&gt; 함수로 지정할수 있음&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;perpect 해시 함수: 충돌없이 1 - to - 1 매핑하는 해시 함수&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;b&gt; c- universal 해시 함수: 서로 임의의 두 key 값 x, y 에대해 prob(f(x) == f(y)= c/size(H))&lt;br /&gt;
+  이 성립하는 해시 함수&lt;/b&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;(key 값이 숫자일 경우)
+    &lt;ul&gt;
+      &lt;li&gt;Division: f(k) = (k mod p) mod m(p:소수)
+        &lt;ul&gt;
+          &lt;li&gt;key 값들의 성질이 잘 알려지지 않은 경우&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Multiplication: f(k) = ((ak) mod 2^w) » (w-r)
+        &lt;ul&gt;
+          &lt;li&gt;a:랜덤값, w =log k, r=log m&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;folding: key값들의 digit을 나눠 연산하는 방식
+        &lt;ul&gt;
+          &lt;li&gt;shift - folding: ex) bank- account k = 1234 - 567 - 601 두개의 digit 씩 나눠 모두 
+ 더한다 -&amp;gt; (12+ 34+ 56+ 76+ 01) mod m&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;mid - square : key 값을 적당히 연산후 , 그결과의 중간부분을 떼어내 주소로 사용
+        &lt;ul&gt;
+          &lt;li&gt;m= 1000이고, k= 3121이면, 3121 ^2 = 9740641이되고 중간에 3 digit을 때어낸 주소 406&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Extraction: key 값의 각 파트마다 임의의 digit을 떼어네 연결해 계산
+        &lt;ul&gt;
+          &lt;li&gt;계좌번호가 1254-387-601이라면, 1254에서 12, 601에서 1을 때어낸후 서로 붙여 121을 만듬&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;(key 값이 string 경우)&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Additive hash: key[i]의 단순 합&lt;/li&gt;
+      &lt;li&gt;Rotating hash: «, »(비트 쉬프트)연산과 ^(exclusive or) 연산을 반복&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;*좋은 해시 함수란?&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;되도록 빠르고, 충돌이 되도록 적어야 한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;충돌-해결-방법&quot;&gt;충돌 해결 방법&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;서로 다른 key 값 x, y에 대해 f(x) = f(y)가 된다면 두 키값은 충돌이라함&lt;/li&gt;
+  &lt;li&gt;이와 같은 경우에 두값을 해시 테이블에 저장 방법 즉 충돌 해경방법 필요&lt;/li&gt;
+  &lt;li&gt;open - addressing 과 chaining 두가지 방법이 일반적임&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;a. open addressing: linear probing&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;삽입 탐색 pseudo code ↓&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;find_slot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;#빈 슬롯이 없는 경우 대책은?
+&lt;/span&gt;   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;           &lt;span class=&quot;c1&quot;&gt;#더 큰 테이블이 필요함.
+&lt;/span&gt;      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;occupied&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;#key값이 존재하면 기존 값 수정
+&lt;/span&gt;      &lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;       &lt;span class=&quot;c1&quot;&gt;#val 값 update 후 리턴
+&lt;/span&gt;   &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                   &lt;span class=&quot;c1&quot;&gt;#H[i]가 비어있는 경우, 즉 key가 없다면 새로 지정해야함
+&lt;/span&gt;      &lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;retrun&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;find_slot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;occupied&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; 
+         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FULL&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;삽입 연산: set(key, val)
+    &lt;ol&gt;
+      &lt;li&gt;해시 테이블 H의 각 슬롯에는 하나의 아이템을 저장&lt;/li&gt;
+      &lt;li&gt;아이템(key , val) 쌍으로 정의&lt;/li&gt;
+      &lt;li&gt;key는 아이템들끼리 구분하므로 아이템마다 서로 달라야함&lt;/li&gt;
+      &lt;li&gt;value 는 해당 아이템의 다양한 정보를 의미&lt;/li&gt;
+      &lt;li&gt;key 값을 갖는 아이템이 이미 테이블에 있다면 해당 아이템의 val를 매개변수 val값으로 수정, 없다면 새 아이템(key, val)를 삽입하는 연산&lt;/li&gt;
+      &lt;li&gt;정상적으로 삽입이 이루어지면, key 값을 그대로 리턴하고, 빈테이블에 빈슬롯이 없어 삽입하지 않으면 FULL 리턴&lt;/li&gt;
+      &lt;li&gt;이를 위해 open addressing 방법에 따라 key값을 갖는 아이템을 찾거나 빈슬롯을 찾아 H인덱스를 리턴하는 find_slot(key)함수 필요&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;find_slot(key)
+    &lt;ol&gt;
+      &lt;li&gt;key 값을 갖는 아이템을 찾아 index를 리턴. 단 해당 슬롯에 아이템 있다면 key 값을 갖는 아이템이며, 슬롯이 비어있다면 해당 아이템이 해시 테이블에 없다는 뜻&lt;/li&gt;
+      &lt;li&gt;만약 key 값을 갖는 슬롯이 존재하지도, 빈슬롯도 없다면 FULL리턴&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;삭제 psuedo code ↓
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_slot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unoccupied&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;mark&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unoccupied&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; 
+          &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unoccupied&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# 이동완료
+&lt;/span&gt;              &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+              &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;삭제 연산: remove(key)
+    &lt;ol&gt;
+      &lt;li&gt;key 값을 갖는 아이템을 find_slot()을 이용해 찾는다.&lt;/li&gt;
+      &lt;li&gt;H[i]가 비었다면 삭제할 아이템이 실제로 존재 하지않으므로 None 리턴&lt;/li&gt;
+      &lt;li&gt;H[i]가 존재한다면, 이 아이템때문에 밀린 아래쪽의 cluster 들을 연쇄적으로 위로 올려 이동한다&lt;/li&gt;
+      &lt;li&gt;이동한후 성공적인 삭제가 수행되었다는 의미에서 key 값 자체 리턴
+        &lt;ul&gt;
+          &lt;li&gt;H[i]는 현재 빈슬롯이고, 아래쪽 H[j]에 있는 아이템을 H[i]로 이동할지를 결정해야 함&lt;/li&gt;
+          &lt;li&gt;H[j].key 값의 해시 함수 값을 k 라 하자 즉, k = f(H[j].key)이다&lt;/li&gt;
+          &lt;li&gt;이 키 값이 [i,j]에 있다면 즉, (..i..k..j..)순이라면 H[j]를 H[i]로 옮기면 안됨&lt;/li&gt;
+          &lt;li&gt;왜?? -&amp;gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>yujunchoi</name></author><category term="data-structure" /><summary type="html">Hash Table</summary></entry><entry><title type="html">자료구조 (4) 큐</title><link href="https://pathfinder357.github.io/data-queue" rel="alternate" type="text/html" title="자료구조 (4) 큐" /><published>2021-08-06T20:33:00+09:00</published><updated>2021-08-06T20:33:00+09:00</updated><id>https://pathfinder357.github.io/data-queue</id><content type="html" xml:base="https://pathfinder357.github.io/data-queue">&lt;h2 id=&quot;queue&quot;&gt;Queue&lt;/h2&gt;
 
 &lt;h4 id=&quot;fifofirst-in-first-out규칙의-순차적-자료구조&quot;&gt;FIFO(first-in first-out)규칙의 순차적 자료구조&lt;/h4&gt;
 
@@ -557,7 +735,232 @@ sequence 들을 순환가능(iterable) 객체라고 한다.&lt;/p&gt;
 꼬리 노드에 도달하면 마지막 노드의 .next에 새로운노드의 주소를 저장하고 size를 추가시키는 부분인데
 while 반복문중에서 tail = tail.next 이부분이 이해가 잘 가지가 않았다. 
 하지만 공부했던 것을 다시 생각해보니 좌변에 있는 변수는 우변에 있는 어떤것에 대한 주소의 별칭일 뿐이다.
-즉 tail =tail.next는 tail이 가르키는 곳이 tail.next가 가르키는 곳으로 바뀌었다는 뜻인것이다.&lt;/p&gt;</content><author><name>yujunchoi</name></author><category term="data-structure" /><summary type="html">목록형 자료구조인 리스트를 통해 자료구조의 기초를 다질것입니다.</summary></entry><entry><title type="html">자료구조 (6) 트리</title><link href="https://pathfinder357.github.io/data-Tree" rel="alternate" type="text/html" title="자료구조 (6) 트리" /><published>2021-07-27T01:40:00+09:00</published><updated>2021-07-27T01:40:00+09:00</updated><id>https://pathfinder357.github.io/data-Tree</id><content type="html" xml:base="https://pathfinder357.github.io/data-Tree">&lt;p&gt;&lt;strong&gt;프로그래밍 자료구조 마지막장 트리.&lt;/strong&gt;&lt;/p&gt;
+즉 tail =tail.next는 tail이 가르키는 곳이 tail.next가 가르키는 곳으로 바뀌었다는 뜻인것이다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;splice-연산&quot;&gt;splice 연산&lt;/h4&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def splice(self, a, b, x):
+  조건1: a -&amp;gt;.... -&amp;gt; b
+  조건2: a와 b 사이에 (Head노드 X, x노드존재 X) cut될경우 다른노드로 올기다는뜻이됨 
+  조건3: 조건 1,2가 유지 된다면 a~b사이만큼을 노드를 컷
+  조건4: x-&amp;gt;x.next 사이에 붙여넣기  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>yujunchoi</name></author><category term="data-structure" /><summary type="html">목록형 자료구조인 리스트를 통해 자료구조의 기초를 다질것입니다.</summary></entry><entry><title type="html">자료구조 (2) 순차적자료구조</title><link href="https://pathfinder357.github.io/data-basic" rel="alternate" type="text/html" title="자료구조 (2) 순차적자료구조" /><published>2021-07-27T01:40:00+09:00</published><updated>2021-07-27T01:40:00+09:00</updated><id>https://pathfinder357.github.io/data-basic</id><content type="html" xml:base="https://pathfinder357.github.io/data-basic">&lt;h3 id=&quot;순차적-자료구조&quot;&gt;순차적 자료구조&lt;/h3&gt;
+
+&lt;p&gt;(1) 배열, 리스트&lt;/p&gt;
+
+&lt;p&gt;인덱스로 임의 원소를 접근&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;연산자 []&lt;/li&gt;
+  &lt;li&gt;삽입(append, insert)&lt;/li&gt;
+  &lt;li&gt;삭제(pop, remove)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;(2) stack, queue, dequeue&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;제한된 접근(삽입, 삭제)  접근만 허용&lt;/li&gt;
+  &lt;li&gt;배열과 리스트는 인덱스만 알면 삭제 삽입이 가능하지만 스택, 큐는 제한된 것만 활용가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;＊ 스택 접근 방식&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;LIFO(last in first out)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;밑에서부터 차곡차곡&lt;/p&gt;
+
+&lt;p&gt;제한된 연산만 사용하는 자료구조는 굉장히 많다 (ex: )&lt;/p&gt;
+
+&lt;p&gt;＊ 큐 접근방식&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;FIFO(first in fist out, 선착순)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;밑에서부터 차곡차곡&lt;/p&gt;
+
+&lt;p&gt;＊ dequeue 접근방식&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;stack + queue&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;(3) Linked List&lt;/p&gt;
+
+&lt;p&gt;독립적으로 저장되어 있는 노드에 다음값에 대해서 알고있는 링크를연결 하는 것&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;각각의 노드에 자기 자신의 val + self.next를 가진다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;각자의 값들이 연속되어 있지 않은 곳에 저장되어 있고 다음 노드의 링크를 가지고있는것(idx로 접근 할수가없지만 함수로 가능케 할순있음)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>yujunchoi</name></author><category term="data-structure" /><summary type="html">순차적 자료구조</summary></entry><entry><title type="html">second</title><link href="https://pathfinder357.github.io/algo-control" rel="alternate" type="text/html" title="second" /><published>2021-07-27T01:40:00+09:00</published><updated>2021-07-27T01:40:00+09:00</updated><id>https://pathfinder357.github.io/algo-control</id><content type="html" xml:base="https://pathfinder357.github.io/algo-control">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;목차. &lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./algo-basic&quot;&gt;first&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./algo-control&quot;&gt;second&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;컨트롤&lt;/p&gt;
+
+&lt;noscript&gt;&lt;pre&gt;# Jekyll configuration
+markdown: kramdown
+# kramdown : markdown의 개조판.
+# markdown에서 불편한 사항을 개선한 형태.
+
+# MyData
+owner:
+  name:           yujunchoi
+  avatar:         photo.jpg
+  bio:            &amp;quot;SSU computer science lab&amp;quot;
+  email:          nsa01775@naver.com
+  # Social networking links used in footer. Update and remove as you like.
+  twitter:
+  facebook:
+  github:
+  stackexchange:
+  linkedin:
+  instagram:
+  flickr:
+  tumblr:
+  # google plus id, include the &amp;#39;+&amp;#39;, eg +mmistakes
+  google_plus:
+
+highlighter: rouge
+# text highlighter로 rouge이용
+# 2016.02월 이후로 syntax highlighter는 rouge만 지원.
+# Pygments 사용불가.
+
+paginate: 20
+# 작성한 모든 post를 하나의 페이지에 열거할 수 없으니
+# pagination이 필요하고 몇개의 post를 하나의 page에서
+# 보여줄 건지를 설정.
+
+language: &amp;#39;en-uk&amp;#39;
+# 언어 설정
+
+url: https://pathfinder357.github.io
+# Google Search Console에서 사용하는 sitemap.xml 생성시
+# 이 url key값이 존재하지 않으면 sitemap.xml이
+# 정상적으로 생성되지 않는다.
+# 또한 disqus(댓글시스템)를 이용하기 위해서도 필요.
+# 자신의 github page url을 입력
+# ( https://your_github_id.github.io 형식 )
+
+baseurl: /
+
+# Website info
+title: CYJ practice blog
+# 자신의 blog title.
+
+description: 공부내용 정리 블로그
+# blog home에 표시될 blog에 대한 전반적인 설명.
+
+cover: assets/built/images/blog-cover1.png
+# blog home에 표시될 blog cover image.
+
+logo:
+logo_dark:
+
+favicon: assets/built/images/favicon.png
+# favicon으로 사용할 image
+
+production_url: https://pathfinder357.github.io
+# 최종적으로 blog가 운영될 url
+
+source_url: https://github.com/pathfinder/GitHubPageMaker/
+# blogmaker(jekyll source folder)에 대한 github repository
+
+# Social info
+navigation: True
+# Navigation bar link를 보여줄건지 여부
+
+subscribers: True
+# subscriber 기능을 사용할건지의 여부
+# 저는 약간의 수정을 통해 subscriber 기능대신
+# lunr.js를 이용한 검색 기능으로 대체 사용했습니다.
+# 검색기능으로 대체하기 위해서
+# `_includes/subscribe-form.html` 파일의 수정이 필요합니다.
+
+twitter:
+facebook:
+# 만약 twitter와 facebook을 이용하면 username을 입력
+
+# Disqus
+disqus: True
+disqus_shortname: xxxxxxxx
+# disqus는 온라인 댓글 시스템. 댓글 기능을 사용하기 위해
+# disqus를 이용할 것인지 여부와 만약 사용하면
+# disqus shortname을 입력 ( disqus username이 아님 )
+
+
+# Google Analytics
+google_analytics: UA-xxxxxxxx-x # replace with your GA tracking identifier
+# Google Analytics을 사용할 경우 GA tracking identifier를 입력
+
+# Permalinks
+permalink: /:title
+# permalink: /author/:author
+# permalink: /tag/:title
+# 각각의 post에 고정주소를 어떤 방식으로 할당할 것인지를 결정
+# 이 값을 바꾸면 작성한 포스트의 저장위치나 파일이름이 변경된다.
+
+# gems and other configs
+plugins: [jekyll-paginate, jekyll-feed, jekyll-gist]
+
+feed:
+  path: feed.xml
+
+# Travis-CI 설정입니다.
+safe: False
+lsi: False
+
+username: pathfinder357
+repo: GitHubPageMaker
+# username : travis-ci와 연동하는 github의 username
+# repo: travis-ci와 연동하는 github의 repository이름
+# https://github.com/&amp;lt;username&amp;gt;/&amp;lt;repository&amp;gt;
+
+branch: master
+# 사용할 branch명
+
+relative_source:
+
+destination: ../[GitHubPage]/
+# compile된 결과가 생성되는 폴더
+# 이 폴더안의 내용이 우리가 운영하는 블로그 내용이 컴파일되서 들어간다.
+# 이 폴더안의 내용을 github repository(https://username.github.io)에 push
+# 만약 Travis-CI를 이용할 예정이면 이 부분을 git submodule로
+# github repository(https://username.github.io)에 연결해야 한다.
+
+
+# exclude는 Jekyll컴파일 시 destination에 포함될 필요가
+# 없는것들을 명시한다. (node_modules와 필요없는 것들은 제외)
+exclude:
+  - README.md
+  - Rakefile
+  - Gemfile
+  - Gemfile.lock
+  - changelog.md
+  - &amp;quot;*.Rmd&amp;quot;
+  - vendor
+  - .travis.yml
+  - node_modules
+  - assets/css
+  - assets/images
+  - _posts/angular
+  - _posts/et-cetera
+  - _posts/python
+  - _posts/typescript
+  - _posts/jekyll
+  - _posts/iot
+  - _posts/r
+  - _posts/economy&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/pathfinder357/9ac1cc156318e32ee9a967b0e503c91c.js&quot;&gt; &lt;/script&gt;</content><author><name>yujunchoi</name></author><category term="algorithm" /><summary type="html">목차. first second</summary></entry><entry><title type="html">자료구조 (6) 트리</title><link href="https://pathfinder357.github.io/data-Tree" rel="alternate" type="text/html" title="자료구조 (6) 트리" /><published>2021-07-27T01:40:00+09:00</published><updated>2021-07-27T01:40:00+09:00</updated><id>https://pathfinder357.github.io/data-Tree</id><content type="html" xml:base="https://pathfinder357.github.io/data-Tree">&lt;p&gt;&lt;strong&gt;프로그래밍 자료구조 마지막장 트리.&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&quot;lcrs-트리&quot;&gt;LCRS 트리&lt;/h3&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
@@ -773,218 +1176,4 @@ while 반복문중에서 tail = tail.next 이부분이 이해가 잘 가지가 �
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;disjoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
  
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>yujunchoi</name></author><category term="data-structure" /><summary type="html">프로그래밍 자료구조 마지막장 트리. LCRS 트리</summary></entry><entry><title type="html">자료구조 (2) 순차적자료구조</title><link href="https://pathfinder357.github.io/data-basic" rel="alternate" type="text/html" title="자료구조 (2) 순차적자료구조" /><published>2021-07-27T01:40:00+09:00</published><updated>2021-07-27T01:40:00+09:00</updated><id>https://pathfinder357.github.io/data-basic</id><content type="html" xml:base="https://pathfinder357.github.io/data-basic">&lt;h3 id=&quot;순차적-자료구조&quot;&gt;순차적 자료구조&lt;/h3&gt;
-
-&lt;p&gt;(1) 배열, 리스트&lt;/p&gt;
-
-&lt;p&gt;인덱스로 임의 원소를 접근&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;연산자 []&lt;/li&gt;
-  &lt;li&gt;삽입(append, insert)&lt;/li&gt;
-  &lt;li&gt;삭제(pop, remove)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;(2) stack, queue, dequeue&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;제한된 접근(삽입, 삭제)  접근만 허용&lt;/li&gt;
-  &lt;li&gt;배열과 리스트는 인덱스만 알면 삭제 삽입이 가능하지만 스택, 큐는 제한된 것만 활용가능&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;＊ 스택 접근 방식&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;LIFO(last in first out)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;밑에서부터 차곡차곡&lt;/p&gt;
-
-&lt;p&gt;제한된 연산만 사용하는 자료구조는 굉장히 많다 (ex: )&lt;/p&gt;
-
-&lt;p&gt;＊ 큐 접근방식&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;FIFO(first in fist out, 선착순)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;밑에서부터 차곡차곡&lt;/p&gt;
-
-&lt;p&gt;＊ dequeue 접근방식&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;stack + queue&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;(3) Linked List&lt;/p&gt;
-
-&lt;p&gt;독립적으로 저장되어 있는 노드에 다음값에 대해서 알고있는 링크를연결 하는 것&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;각각의 노드에 자기 자신의 val + self.next를 가진다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;각자의 값들이 연속되어 있지 않은 곳에 저장되어 있고 다음 노드의 링크를 가지고있는것(idx로 접근 할수가없지만 함수로 가능케 할순있음)&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>yujunchoi</name></author><category term="data-structure" /><summary type="html">순차적 자료구조</summary></entry><entry><title type="html">second</title><link href="https://pathfinder357.github.io/algo-control" rel="alternate" type="text/html" title="second" /><published>2021-07-27T01:40:00+09:00</published><updated>2021-07-27T01:40:00+09:00</updated><id>https://pathfinder357.github.io/algo-control</id><content type="html" xml:base="https://pathfinder357.github.io/algo-control">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;목차. &lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./algo-basic&quot;&gt;first&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./algo-control&quot;&gt;second&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;컨트롤&lt;/p&gt;
-
-&lt;noscript&gt;&lt;pre&gt;# Jekyll configuration
-markdown: kramdown
-# kramdown : markdown의 개조판.
-# markdown에서 불편한 사항을 개선한 형태.
-
-# MyData
-owner:
-  name:           yujunchoi
-  avatar:         photo.jpg
-  bio:            &amp;quot;SSU computer science lab&amp;quot;
-  email:          nsa01775@naver.com
-  # Social networking links used in footer. Update and remove as you like.
-  twitter:
-  facebook:
-  github:
-  stackexchange:
-  linkedin:
-  instagram:
-  flickr:
-  tumblr:
-  # google plus id, include the &amp;#39;+&amp;#39;, eg +mmistakes
-  google_plus:
-
-highlighter: rouge
-# text highlighter로 rouge이용
-# 2016.02월 이후로 syntax highlighter는 rouge만 지원.
-# Pygments 사용불가.
-
-paginate: 20
-# 작성한 모든 post를 하나의 페이지에 열거할 수 없으니
-# pagination이 필요하고 몇개의 post를 하나의 page에서
-# 보여줄 건지를 설정.
-
-language: &amp;#39;en-uk&amp;#39;
-# 언어 설정
-
-url: https://pathfinder357.github.io
-# Google Search Console에서 사용하는 sitemap.xml 생성시
-# 이 url key값이 존재하지 않으면 sitemap.xml이
-# 정상적으로 생성되지 않는다.
-# 또한 disqus(댓글시스템)를 이용하기 위해서도 필요.
-# 자신의 github page url을 입력
-# ( https://your_github_id.github.io 형식 )
-
-baseurl: /
-
-# Website info
-title: CYJ practice blog
-# 자신의 blog title.
-
-description: 공부내용 정리 블로그
-# blog home에 표시될 blog에 대한 전반적인 설명.
-
-cover: assets/built/images/blog-cover1.png
-# blog home에 표시될 blog cover image.
-
-logo:
-logo_dark:
-
-favicon: assets/built/images/favicon.png
-# favicon으로 사용할 image
-
-production_url: https://pathfinder357.github.io
-# 최종적으로 blog가 운영될 url
-
-source_url: https://github.com/pathfinder/GitHubPageMaker/
-# blogmaker(jekyll source folder)에 대한 github repository
-
-# Social info
-navigation: True
-# Navigation bar link를 보여줄건지 여부
-
-subscribers: True
-# subscriber 기능을 사용할건지의 여부
-# 저는 약간의 수정을 통해 subscriber 기능대신
-# lunr.js를 이용한 검색 기능으로 대체 사용했습니다.
-# 검색기능으로 대체하기 위해서
-# `_includes/subscribe-form.html` 파일의 수정이 필요합니다.
-
-twitter:
-facebook:
-# 만약 twitter와 facebook을 이용하면 username을 입력
-
-# Disqus
-disqus: True
-disqus_shortname: xxxxxxxx
-# disqus는 온라인 댓글 시스템. 댓글 기능을 사용하기 위해
-# disqus를 이용할 것인지 여부와 만약 사용하면
-# disqus shortname을 입력 ( disqus username이 아님 )
-
-
-# Google Analytics
-google_analytics: UA-xxxxxxxx-x # replace with your GA tracking identifier
-# Google Analytics을 사용할 경우 GA tracking identifier를 입력
-
-# Permalinks
-permalink: /:title
-# permalink: /author/:author
-# permalink: /tag/:title
-# 각각의 post에 고정주소를 어떤 방식으로 할당할 것인지를 결정
-# 이 값을 바꾸면 작성한 포스트의 저장위치나 파일이름이 변경된다.
-
-# gems and other configs
-plugins: [jekyll-paginate, jekyll-feed, jekyll-gist]
-
-feed:
-  path: feed.xml
-
-# Travis-CI 설정입니다.
-safe: False
-lsi: False
-
-username: pathfinder357
-repo: GitHubPageMaker
-# username : travis-ci와 연동하는 github의 username
-# repo: travis-ci와 연동하는 github의 repository이름
-# https://github.com/&amp;lt;username&amp;gt;/&amp;lt;repository&amp;gt;
-
-branch: master
-# 사용할 branch명
-
-relative_source:
-
-destination: ../[GitHubPage]/
-# compile된 결과가 생성되는 폴더
-# 이 폴더안의 내용이 우리가 운영하는 블로그 내용이 컴파일되서 들어간다.
-# 이 폴더안의 내용을 github repository(https://username.github.io)에 push
-# 만약 Travis-CI를 이용할 예정이면 이 부분을 git submodule로
-# github repository(https://username.github.io)에 연결해야 한다.
-
-
-# exclude는 Jekyll컴파일 시 destination에 포함될 필요가
-# 없는것들을 명시한다. (node_modules와 필요없는 것들은 제외)
-exclude:
-  - README.md
-  - Rakefile
-  - Gemfile
-  - Gemfile.lock
-  - changelog.md
-  - &amp;quot;*.Rmd&amp;quot;
-  - vendor
-  - .travis.yml
-  - node_modules
-  - assets/css
-  - assets/images
-  - _posts/angular
-  - _posts/et-cetera
-  - _posts/python
-  - _posts/typescript
-  - _posts/jekyll
-  - _posts/iot
-  - _posts/r
-  - _posts/economy&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/pathfinder357/9ac1cc156318e32ee9a967b0e503c91c.js&quot;&gt; &lt;/script&gt;</content><author><name>yujunchoi</name></author><category term="algorithm" /><summary type="html">목차. first second</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>yujunchoi</name></author><category term="data-structure" /><summary type="html">프로그래밍 자료구조 마지막장 트리. LCRS 트리</summary></entry></feed>

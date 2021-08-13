@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://pathfinder357.github.io/author/pathfinder357/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://pathfinder357.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-08-09T16:44:38+09:00</updated>
+  <updated>2021-08-13T14:01:38+09:00</updated>
   <id>https://pathfinder357.github.io/author/pathfinder357/feed.xml</id>
 
   
@@ -30,6 +30,218 @@
   
   
 
+  
+    <entry>
+      <title type="html">자료구조 (7) 해시 테이블</title>
+      <link href="https://pathfinder357.github.io/hash-table" rel="alternate" type="text/html" title="자료구조 (7) 해시 테이블" />
+      <published>2021-08-11T21:40:00+09:00</published>
+      <updated>2021-08-11T21:40:00+09:00</updated>
+      <id>https://pathfinder357.github.io/hash-table</id>
+      <content type="html" xml:base="https://pathfinder357.github.io/hash-table">&lt;h3 id=&quot;hash-table&quot;&gt;Hash Table&lt;/h3&gt;
+
+&lt;hr /&gt;
+&lt;ol&gt;
+  &lt;li&gt;해시 테이블은 일종의 사전이고, Python 의 dict 자료구조처럼 다음 연산을 빠르게 지원
+    &lt;ol&gt;
+      &lt;li&gt;if(데이터가 key, value 값의 쌍으로 구성
+        &lt;ul&gt;
+          &lt;li&gt;insert(key, val)     #(key, val)를 해시 테이블에 저장, 같은 키가 있다면 overwirte&lt;/li&gt;
+          &lt;li&gt;remove(key, val)     #(key, val)가 해시 테이블에 있다면 제거(delete)&lt;/li&gt;
+          &lt;li&gt;search(key)          #(key, val)를 찾아 리턴, 없다면 알려줌&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;해시 테이블은 보통 정보를 담아 저장할수있는 서랍장 행태로 구현&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;가장 핵심적인 과정은 각 정보를 몇번째 서랍에 넣을지를 결정하는 것&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;정보 K(key)가 저장될 서랍장(slot) 번호를 계산하는 함수 f()를 hash func 이라 한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+&lt;h4 id=&quot;hash-func&quot;&gt;hash func&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;만약 key값이 정수가 아니라면?&amp;gt; 실수이거나 문자열이라면?
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;(실수, 문자열) key 값을 정수에 대응시키는 prehash함수를 먼저 사용해 변환&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;hash&lt;/strong&gt; 함수로 지정할수 있음&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;perpect 해시 함수: 충돌없이 1 - to - 1 매핑하는 해시 함수&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;b&gt; c- universal 해시 함수: 서로 임의의 두 key 값 x, y 에대해 prob(f(x) == f(y)= c/size(H))&lt;br /&gt;
+  이 성립하는 해시 함수&lt;/b&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;(key 값이 숫자일 경우)
+    &lt;ul&gt;
+      &lt;li&gt;Division: f(k) = (k mod p) mod m(p:소수)
+        &lt;ul&gt;
+          &lt;li&gt;key 값들의 성질이 잘 알려지지 않은 경우&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Multiplication: f(k) = ((ak) mod 2^w) » (w-r)
+        &lt;ul&gt;
+          &lt;li&gt;a:랜덤값, w =log k, r=log m&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;folding: key값들의 digit을 나눠 연산하는 방식
+        &lt;ul&gt;
+          &lt;li&gt;shift - folding: ex) bank- account k = 1234 - 567 - 601 두개의 digit 씩 나눠 모두 
+ 더한다 -&amp;gt; (12+ 34+ 56+ 76+ 01) mod m&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;mid - square : key 값을 적당히 연산후 , 그결과의 중간부분을 떼어내 주소로 사용
+        &lt;ul&gt;
+          &lt;li&gt;m= 1000이고, k= 3121이면, 3121 ^2 = 9740641이되고 중간에 3 digit을 때어낸 주소 406&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Extraction: key 값의 각 파트마다 임의의 digit을 떼어네 연결해 계산
+        &lt;ul&gt;
+          &lt;li&gt;계좌번호가 1254-387-601이라면, 1254에서 12, 601에서 1을 때어낸후 서로 붙여 121을 만듬&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;(key 값이 string 경우)&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Additive hash: key[i]의 단순 합&lt;/li&gt;
+      &lt;li&gt;Rotating hash: «, »(비트 쉬프트)연산과 ^(exclusive or) 연산을 반복&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;*좋은 해시 함수란?&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;되도록 빠르고, 충돌이 되도록 적어야 한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;충돌-해결-방법&quot;&gt;충돌 해결 방법&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;서로 다른 key 값 x, y에 대해 f(x) = f(y)가 된다면 두 키값은 충돌이라함&lt;/li&gt;
+  &lt;li&gt;이와 같은 경우에 두값을 해시 테이블에 저장 방법 즉 충돌 해경방법 필요&lt;/li&gt;
+  &lt;li&gt;open - addressing 과 chaining 두가지 방법이 일반적임&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;a. open addressing: linear probing&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;삽입 탐색 pseudo code ↓&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;find_slot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;#빈 슬롯이 없는 경우 대책은?
+&lt;/span&gt;   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;           &lt;span class=&quot;c1&quot;&gt;#더 큰 테이블이 필요함.
+&lt;/span&gt;      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;occupied&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;#key값이 존재하면 기존 값 수정
+&lt;/span&gt;      &lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;       &lt;span class=&quot;c1&quot;&gt;#val 값 update 후 리턴
+&lt;/span&gt;   &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                   &lt;span class=&quot;c1&quot;&gt;#H[i]가 비어있는 경우, 즉 key가 없다면 새로 지정해야함
+&lt;/span&gt;      &lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;retrun&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;find_slot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;occupied&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; 
+         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FULL&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;삽입 연산: set(key, val)
+    &lt;ol&gt;
+      &lt;li&gt;해시 테이블 H의 각 슬롯에는 하나의 아이템을 저장&lt;/li&gt;
+      &lt;li&gt;아이템(key , val) 쌍으로 정의&lt;/li&gt;
+      &lt;li&gt;key는 아이템들끼리 구분하므로 아이템마다 서로 달라야함&lt;/li&gt;
+      &lt;li&gt;value 는 해당 아이템의 다양한 정보를 의미&lt;/li&gt;
+      &lt;li&gt;key 값을 갖는 아이템이 이미 테이블에 있다면 해당 아이템의 val를 매개변수 val값으로 수정, 없다면 새 아이템(key, val)를 삽입하는 연산&lt;/li&gt;
+      &lt;li&gt;정상적으로 삽입이 이루어지면, key 값을 그대로 리턴하고, 빈테이블에 빈슬롯이 없어 삽입하지 않으면 FULL 리턴&lt;/li&gt;
+      &lt;li&gt;이를 위해 open addressing 방법에 따라 key값을 갖는 아이템을 찾거나 빈슬롯을 찾아 H인덱스를 리턴하는 find_slot(key)함수 필요&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;find_slot(key)
+    &lt;ol&gt;
+      &lt;li&gt;key 값을 갖는 아이템을 찾아 index를 리턴. 단 해당 슬롯에 아이템 있다면 key 값을 갖는 아이템이며, 슬롯이 비어있다면 해당 아이템이 해시 테이블에 없다는 뜻&lt;/li&gt;
+      &lt;li&gt;만약 key 값을 갖는 슬롯이 존재하지도, 빈슬롯도 없다면 FULL리턴&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;삭제 psuedo code ↓
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_slot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unoccupied&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;mark&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unoccupied&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; 
+          &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unoccupied&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# 이동완료
+&lt;/span&gt;              &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+              &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;삭제 연산: remove(key)
+    &lt;ol&gt;
+      &lt;li&gt;key 값을 갖는 아이템을 find_slot()을 이용해 찾는다.&lt;/li&gt;
+      &lt;li&gt;H[i]가 비었다면 삭제할 아이템이 실제로 존재 하지않으므로 None 리턴&lt;/li&gt;
+      &lt;li&gt;H[i]가 존재한다면, 이 아이템때문에 밀린 아래쪽의 cluster 들을 연쇄적으로 위로 올려 이동한다&lt;/li&gt;
+      &lt;li&gt;이동한후 성공적인 삭제가 수행되었다는 의미에서 key 값 자체 리턴
+        &lt;ul&gt;
+          &lt;li&gt;H[i]는 현재 빈슬롯이고, 아래쪽 H[j]에 있는 아이템을 H[i]로 이동할지를 결정해야 함&lt;/li&gt;
+          &lt;li&gt;H[j].key 값의 해시 함수 값을 k 라 하자 즉, k = f(H[j].key)이다&lt;/li&gt;
+          &lt;li&gt;이 키 값이 [i,j]에 있다면 즉, (..i..k..j..)순이라면 H[j]를 H[i]로 옮기면 안됨&lt;/li&gt;
+          &lt;li&gt;왜?? -&amp;gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>yujunchoi</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="data-structure" />
+      
+
+      
+        <summary type="html">Hash Table</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">자료구조 (4) 큐</title>
@@ -919,7 +1131,18 @@ sequence 들을 순환가능(iterable) 객체라고 한다.&lt;/p&gt;
 꼬리 노드에 도달하면 마지막 노드의 .next에 새로운노드의 주소를 저장하고 size를 추가시키는 부분인데
 while 반복문중에서 tail = tail.next 이부분이 이해가 잘 가지가 않았다. 
 하지만 공부했던 것을 다시 생각해보니 좌변에 있는 변수는 우변에 있는 어떤것에 대한 주소의 별칭일 뿐이다.
-즉 tail =tail.next는 tail이 가르키는 곳이 tail.next가 가르키는 곳으로 바뀌었다는 뜻인것이다.&lt;/p&gt;</content>
+즉 tail =tail.next는 tail이 가르키는 곳이 tail.next가 가르키는 곳으로 바뀌었다는 뜻인것이다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;splice-연산&quot;&gt;splice 연산&lt;/h4&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def splice(self, a, b, x):
+  조건1: a -&amp;gt;.... -&amp;gt; b
+  조건2: a와 b 사이에 (Head노드 X, x노드존재 X) cut될경우 다른노드로 올기다는뜻이됨 
+  조건3: 조건 1,2가 유지 된다면 a~b사이만큼을 노드를 컷
+  조건4: x-&amp;gt;x.next 사이에 붙여넣기  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
 
       
       
