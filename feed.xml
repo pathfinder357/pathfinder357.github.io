@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://pathfinder357.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://pathfinder357.github.io/" rel="alternate" type="text/html" /><updated>2021-08-13T14:04:45+09:00</updated><id>https://pathfinder357.github.io/feed.xml</id><title type="html">Pathfinder practice blog</title><subtitle>공부내용 정리 블로그</subtitle><entry><title type="html">자료구조 (7) 해시 테이블</title><link href="https://pathfinder357.github.io/hash-table" rel="alternate" type="text/html" title="자료구조 (7) 해시 테이블" /><published>2021-08-11T21:40:00+09:00</published><updated>2021-08-11T21:40:00+09:00</updated><id>https://pathfinder357.github.io/hash-table</id><content type="html" xml:base="https://pathfinder357.github.io/hash-table">&lt;h3 id=&quot;hash-table&quot;&gt;Hash Table&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://pathfinder357.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://pathfinder357.github.io/" rel="alternate" type="text/html" /><updated>2021-08-17T16:21:59+09:00</updated><id>https://pathfinder357.github.io/feed.xml</id><title type="html">Pathfinder practice blog</title><subtitle>공부내용 정리 블로그</subtitle><entry><title type="html">자료구조 (7) 해시 테이블</title><link href="https://pathfinder357.github.io/hash-table" rel="alternate" type="text/html" title="자료구조 (7) 해시 테이블" /><published>2021-08-11T21:40:00+09:00</published><updated>2021-08-11T21:40:00+09:00</updated><id>https://pathfinder357.github.io/hash-table</id><content type="html" xml:base="https://pathfinder357.github.io/hash-table">&lt;h3 id=&quot;hash-table&quot;&gt;Hash Table&lt;/h3&gt;
 
 &lt;hr /&gt;
 &lt;ol&gt;
@@ -82,11 +82,11 @@
       &lt;li&gt;Rotating hash: «, »(비트 쉬프트)연산과 ^(exclusive or) 연산을 반복&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;*좋은 해시 함수란?&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;되도록 빠르고, 충돌이 되도록 적어야 한다.&lt;/li&gt;
+  &lt;li&gt;좋은 해시 함수란?
+    &lt;ul&gt;
+      &lt;li&gt;되도록 빠르고, 충돌이 되도록 적어야 한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -243,8 +243,10 @@
     &lt;li&gt;&lt;a href=&quot;./data-array-list&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./data-basic&quot;&gt;2&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./data-stack&quot;&gt;3&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./data-list&quot;&gt;4&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./data-Tree&quot;&gt;5&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./data-queue&quot;&gt;4&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./data-list&quot;&gt;5&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./data-Tree&quot;&gt;6&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./data-hash-table&quot;&gt;7&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;배열과-리스트&quot;&gt;배열과 리스트&lt;/h3&gt;
@@ -286,7 +288,7 @@
 &lt;span class=&quot;mf&quot;&gt;6.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val값이&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;몇번&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;등장하는&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;지&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;횟수를&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;세어&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;리턴&lt;/span&gt;
 &lt;span class=&quot;mf&quot;&gt;7.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;까지를&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;복사해&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;새로운&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;리스트&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;생성하여&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;리턴&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;slicing&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;연산&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;mf&quot;&gt;8.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;맴버십&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;연산자&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A에&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val가&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;있으면&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;없으면&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>yujunchoi</name></author><category term="data-structure" /><summary type="html">목차. 1 2 3 4 5</summary></entry><entry><title type="html">자료구조 (3) stack</title><link href="https://pathfinder357.github.io/data-stack" rel="alternate" type="text/html" title="자료구조 (3) stack" /><published>2021-07-30T01:40:00+09:00</published><updated>2021-07-30T01:40:00+09:00</updated><id>https://pathfinder357.github.io/data-stack</id><content type="html" xml:base="https://pathfinder357.github.io/data-stack">&lt;h3 id=&quot;stack&quot;&gt;stack&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>yujunchoi</name></author><category term="data-structure" /><summary type="html">목차. 1 2 3 4 5 6 7</summary></entry><entry><title type="html">자료구조 (3) stack</title><link href="https://pathfinder357.github.io/data-stack" rel="alternate" type="text/html" title="자료구조 (3) stack" /><published>2021-07-30T01:40:00+09:00</published><updated>2021-07-30T01:40:00+09:00</updated><id>https://pathfinder357.github.io/data-stack</id><content type="html" xml:base="https://pathfinder357.github.io/data-stack">&lt;h3 id=&quot;stack&quot;&gt;stack&lt;/h3&gt;
 &lt;p&gt;__init(self) : 생성함수&lt;/p&gt;
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
         &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;items&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;

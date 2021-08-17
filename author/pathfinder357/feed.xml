@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://pathfinder357.github.io/author/pathfinder357/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://pathfinder357.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-08-13T14:04:45+09:00</updated>
+  <updated>2021-08-17T16:21:59+09:00</updated>
   <id>https://pathfinder357.github.io/author/pathfinder357/feed.xml</id>
 
   
@@ -121,11 +121,11 @@
       &lt;li&gt;Rotating hash: «, »(비트 쉬프트)연산과 ^(exclusive or) 연산을 반복&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;*좋은 해시 함수란?&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;되도록 빠르고, 충돌이 되도록 적어야 한다.&lt;/li&gt;
+  &lt;li&gt;좋은 해시 함수란?
+    &lt;ul&gt;
+      &lt;li&gt;되도록 빠르고, 충돌이 되도록 적어야 한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -350,8 +350,10 @@
     &lt;li&gt;&lt;a href=&quot;./data-array-list&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./data-basic&quot;&gt;2&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./data-stack&quot;&gt;3&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./data-list&quot;&gt;4&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./data-Tree&quot;&gt;5&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./data-queue&quot;&gt;4&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./data-list&quot;&gt;5&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./data-Tree&quot;&gt;6&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./data-hash-table&quot;&gt;7&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;배열과-리스트&quot;&gt;배열과 리스트&lt;/h3&gt;
@@ -414,7 +416,7 @@
       
 
       
-        <summary type="html">목차. 1 2 3 4 5</summary>
+        <summary type="html">목차. 1 2 3 4 5 6 7</summary>
       
 
       

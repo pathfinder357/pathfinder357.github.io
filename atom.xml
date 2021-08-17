@@ -45,8 +45,10 @@
     &lt;li&gt;&lt;a href=&quot;./data-array-list&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./data-basic&quot;&gt;2&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./data-stack&quot;&gt;3&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./data-list&quot;&gt;4&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./data-Tree&quot;&gt;5&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./data-queue&quot;&gt;4&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./data-list&quot;&gt;5&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./data-Tree&quot;&gt;6&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./data-hash-table&quot;&gt;7&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
