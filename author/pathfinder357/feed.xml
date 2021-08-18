@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://pathfinder357.github.io/author/pathfinder357/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://pathfinder357.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-08-18T14:51:20+09:00</updated>
+  <updated>2021-08-18T15:08:20+09:00</updated>
   <id>https://pathfinder357.github.io/author/pathfinder357/feed.xml</id>
 
   
@@ -100,6 +100,7 @@
 &lt;/ol&gt;
 
 &lt;h4 id=&quot;블록체인-기술의-의의&quot;&gt;블록체인 기술의 의의&lt;/h4&gt;
+
 &lt;p&gt;블록체인의 의의는 안전하지 않은 인터넷망에서 어떠한 중재자 없이 가치 있는 대상을 안전하고 자유롭게 거래 가능하게 하는것&lt;/p&gt;
 
 &lt;ul&gt;
@@ -130,7 +131,52 @@
   &lt;li&gt;Immutability (불변성)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;이 4가지의 특징은 점차 사회를 hyper-connect society로 이끌것이다. 거래에서 발생하는 비용절감과 간소화, 스마트컨트랙으로 계약 내용 이행이 자동화 됨으로써 현재 활발하게 개발되고있는 인공지능 기반 자율주행등 기술에도 블록체인의 기술적 가치가 높다.&lt;/p&gt;</content>
+&lt;p&gt;이 4가지의 특징은 점차 사회를 hyper-connect society로 이끌것이다. 거래에서 발생하는 비용절감과 간소화, 스마트컨트랙으로 계약 내용 이행이 자동화 됨으로써 현재 활발하게 개발되고있는 인공지능 기반 자율주행등 기술에도 블록체인의 기술적 가치가 높다.&lt;/p&gt;
+
+&lt;h4 id=&quot;비트코인-p2p-network&quot;&gt;비트코인 p2p network&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;각 노드가 동등함&lt;/li&gt;
+  &lt;li&gt;거래 원장관리, 거래승인, 거래내역 검증
+    &lt;ul&gt;
+      &lt;li&gt;거래승인(mining), 거래원장관리(blockchain)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;합의 규칙에 따라 각자 업무 수행&lt;/li&gt;
+  &lt;li&gt;전체 노드 50%이상이 정상 데이터가지면 일관성 유지가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;비트코인-네트워크-구성원&quot;&gt;비트코인 네트워크 구성원&lt;/h4&gt;
+
+&lt;p&gt;기본적으로 송금(거래내역생성, 트랜잭션 생성), 송금내용확인(검증) 은 모든 노드가 수행&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Full blockchain node
+    &lt;ul&gt;
+      &lt;li&gt;채굴자 노드가 &lt;em&gt;블록&lt;/em&gt;을 생성한것을 기존 블록체인으로 연결해서 블록체인을 관리&lt;/li&gt;
+      &lt;li&gt;풀 노드가 관리하는 블록체인에는 모든 거래내역(Transaction,TX)애 저장됨&lt;/li&gt;
+      &lt;li&gt;블록체인은 거래 내여들의 집합체이므로 공공거래원장이라고 불림&lt;/li&gt;
+      &lt;li&gt;이 공공 거래장부(블록체인)은 풀노드가 가지고 있고 분산저장&lt;/li&gt;
+      &lt;li&gt;따라서 일부가 잘못되더라도 자체 복원 능력을 가짐&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Lightweight node
+    &lt;ul&gt;
+      &lt;li&gt;스마트기기 후에 설명&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Miner node
+    &lt;ul&gt;
+      &lt;li&gt;송금내역을 모아서 승인하는 절차 수행&lt;/li&gt;
+      &lt;li&gt;승인이 완료된 트랜잭션들을 모아서 &lt;em&gt;블록&lt;/em&gt;을 생성하고 네트워크 전파&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;3rd party API client
+    &lt;ul&gt;
+      &lt;li&gt;안전성 문제때문에 비트코인 네트워크의 기본 구성원이라 할수없지만 후에 할 실습으로 왜 할수없다 하는지 알아볼 예정&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content>
 
       
       
